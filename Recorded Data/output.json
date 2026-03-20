@@ -1,0 +1,1816 @@
+{
+  "browser": "edge",
+  "headed": false,
+  "implicitWait": 3000,
+  "startURL": "ecommerce-test-playground.html",
+  "steps": [
+    {
+      "stepId": "1861353188",
+      "stepNumber": 1,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<label class=\"form-label\" for=\"emailInput\">Email</label>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 16px; border-block-end-color: rgb(107, 107, 133); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(107, 107, 133); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(107, 107, 133); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(107, 107, 133); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(107, 107, 133); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(107, 107, 133); border-left-style: none; border-left-width: 0px; border-right-color: rgb(107, 107, 133); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(107, 107, 133); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(107, 107, 133); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(107, 107, 133); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(107, 107, 133); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bottomâ€¦",
+      "elementTextContent": "Email",
+      "elementTagName": "label",
+      "elementAttributes": [
+        [
+          "class",
+          "form-label"
+        ],
+        [
+          "for",
+          "emailInput"
+        ]
+      ],
+      "xpath": "//label[@class='form-label' and @for='emailInput' and contains(text(),'Email')]",
+      "dynamic": "",
+      "elementPosition": "x:472, y:325, w:323, h:16",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "Email",
+            "contains"
+          ],
+          "tagName": [
+            "label",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "form-label",
+              "equalTo"
+            ],
+            "for": [
+              "emailInput",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:29:52.655Z"
+    },
+    {
+      "stepId": "1242104435",
+      "stepNumber": 2,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<input class=\"form-input\" type=\"email\" id=\"emailInput\" placeholder=\"tester@shoplab.dev\">",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 44px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.1) 0px 0px 0px 3px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-iâ€¦",
+      "elementTextContent": "",
+      "elementTagName": "input",
+      "elementAttributes": [
+        [
+          "class",
+          "form-input"
+        ],
+        [
+          "type",
+          "email"
+        ],
+        [
+          "id",
+          "emailInput"
+        ],
+        [
+          "placeholder",
+          "tester@shoplab.dev"
+        ]
+      ],
+      "xpath": "//input[@id='emailInput']",
+      "dynamic": "",
+      "elementPosition": "x:472, y:349, w:323, h:44",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "tagName": [
+            "input",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "form-input",
+              "equalTo"
+            ],
+            "type": [
+              "email",
+              "equalTo"
+            ],
+            "id": [
+              "emailInput",
+              "equalTo"
+            ],
+            "placeholder": [
+              "tester@shoplab.dev",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:29:58.011Z"
+    },
+    {
+      "stepId": "3417169581",
+      "stepNumber": 3,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<label class=\"form-label\" for=\"passInput\">Password</label>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 16px; border-block-end-color: rgb(107, 107, 133); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(107, 107, 133); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(107, 107, 133); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(107, 107, 133); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(107, 107, 133); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(107, 107, 133); border-left-style: none; border-left-width: 0px; border-right-color: rgb(107, 107, 133); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(107, 107, 133); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(107, 107, 133); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(107, 107, 133); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(107, 107, 133); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bottomâ€¦",
+      "elementTextContent": "Password",
+      "elementTagName": "label",
+      "elementAttributes": [
+        [
+          "class",
+          "form-label"
+        ],
+        [
+          "for",
+          "passInput"
+        ]
+      ],
+      "xpath": "//label[@class='form-label' and @for='passInput' and contains(text(),'Password')]",
+      "dynamic": "",
+      "elementPosition": "x:472, y:411, w:323, h:16",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "Password",
+            "contains"
+          ],
+          "tagName": [
+            "label",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "form-label",
+              "equalTo"
+            ],
+            "for": [
+              "passInput",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:29:59.737Z"
+    },
+    {
+      "stepId": "8811453238",
+      "stepNumber": 4,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<input class=\"form-input\" type=\"password\" id=\"passInput\" placeholder=\"â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢\">",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 44px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.1) 0px 0px 0px 3px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-iâ€¦",
+      "elementTextContent": "",
+      "elementTagName": "input",
+      "elementAttributes": [
+        [
+          "class",
+          "form-input"
+        ],
+        [
+          "type",
+          "password"
+        ],
+        [
+          "id",
+          "passInput"
+        ],
+        [
+          "placeholder",
+          "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+        ]
+      ],
+      "xpath": "//input[@id='passInput']",
+      "dynamic": "",
+      "elementPosition": "x:472, y:435, w:323, h:44",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "tagName": [
+            "input",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "form-input",
+              "equalTo"
+            ],
+            "type": [
+              "password",
+              "equalTo"
+            ],
+            "id": [
+              "passInput",
+              "equalTo"
+            ],
+            "placeholder": [
+              "••••••••",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:30:02.356Z"
+    },
+    {
+      "stepId": "7189658340",
+      "stepNumber": 5,
+      "actionType": "Type / Input",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<input class=\"form-input\" type=\"email\" id=\"emailInput\" placeholder=\"tester@shoplab.dev\">",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 44px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.1) 0px 0px 0px 3px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-iâ€¦",
+      "elementTextContent": "",
+      "elementTagName": "input",
+      "elementAttributes": [
+        [
+          "class",
+          "form-input"
+        ],
+        [
+          "type",
+          "email"
+        ],
+        [
+          "id",
+          "emailInput"
+        ],
+        [
+          "placeholder",
+          "tester@shoplab.dev"
+        ]
+      ],
+      "xpath": "//input[@id='emailInput']",
+      "dynamic": "",
+      "elementPosition": "x:472, y:349, w:323, h:44",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Type into <input>#emailInput: \"tester@shoplab.com\"",
+      "inputValue": "tester@shoplab.com",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:30:19.887Z"
+    },
+    {
+      "stepId": "8546565452",
+      "stepNumber": 6,
+      "actionType": "Type / Input",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<input class=\"form-input\" type=\"password\" id=\"passInput\" placeholder=\"â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢\">",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 44px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.1) 0px 0px 0px 3px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-iâ€¦",
+      "elementTextContent": "",
+      "elementTagName": "input",
+      "elementAttributes": [
+        [
+          "class",
+          "form-input"
+        ],
+        [
+          "type",
+          "password"
+        ],
+        [
+          "id",
+          "passInput"
+        ],
+        [
+          "placeholder",
+          "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+        ]
+      ],
+      "xpath": "//input[@id='passInput']",
+      "dynamic": "",
+      "elementPosition": "x:472, y:435, w:323, h:44",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Type into <input>#passInput: \"test123\"",
+      "inputValue": "test123",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:30:28.006Z"
+    },
+    {
+      "stepId": "6273912630",
+      "stepNumber": 7,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<button class=\"btn-primary\" id=\"loginBtn\" onclick=\"doLogin()\">Sign In â†’</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(232, 255, 71); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 46px; border-block-end-color: rgb(10, 10, 15); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(10, 10, 15); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(10, 10, 15); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(10, 10, 15); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(10, 10, 15); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(10, 10, 15); border-left-style: none; border-left-width: 0px; border-right-color: rgb(10, 10, 15); border-right-style: none; border-right-width: 0px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(10, 10, 15); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.3) 0px 8px 24px 0px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(10, 10, 15); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(10, 10, 15); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(10, 10, 15); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; câ€¦",
+      "elementTextContent": "Sign In →",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "btn-primary"
+        ],
+        [
+          "id",
+          "loginBtn"
+        ],
+        [
+          "onclick",
+          "doLogin()"
+        ]
+      ],
+      "xpath": "//button[@id='loginBtn']",
+      "dynamic": "",
+      "elementPosition": "x:472, y:497, w:323, h:46",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "Sign In →",
+            "contains"
+          ],
+          "tagName": [
+            "button",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "btn-primary",
+              "equalTo"
+            ],
+            "id": [
+              "loginBtn",
+              "equalTo"
+            ],
+            "onclick": [
+              "doLogin()",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:33:55.695Z"
+    },
+    {
+      "stepId": "8639462460",
+      "stepNumber": 8,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<button class=\"btn-primary\" id=\"loginBtn\" onclick=\"doLogin()\">Sign In â†’</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(232, 255, 71); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 46px; border-block-end-color: rgb(10, 10, 15); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(10, 10, 15); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(10, 10, 15); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(10, 10, 15); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(10, 10, 15); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(10, 10, 15); border-left-style: none; border-left-width: 0px; border-right-color: rgb(10, 10, 15); border-right-style: none; border-right-width: 0px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(10, 10, 15); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.3) 0px 8px 24px 0px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(10, 10, 15); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(10, 10, 15); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(10, 10, 15); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; câ€¦",
+      "elementTextContent": "Sign In â†’",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "btn-primary"
+        ],
+        [
+          "id",
+          "loginBtn"
+        ],
+        [
+          "onclick",
+          "doLogin()"
+        ]
+      ],
+      "xpath": "//button[@id='loginBtn']",
+      "dynamic": "",
+      "elementPosition": "x:472, y:497, w:323, h:46",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Click on <button>#loginBtn",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:34:02.140Z"
+    },
+    {
+      "stepId": "1141421508",
+      "stepNumber": 9,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Login Page",
+      "elementDOM": "<h1>Browse Products</h1>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 50px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bottomâ€¦",
+      "elementTextContent": "Browse Products",
+      "elementTagName": "h1",
+      "elementAttributes": [],
+      "xpath": "//h1[contains(.,'Browse Products')]",
+      "dynamic": "",
+      "elementPosition": "x:40, y:166, w:1186, h:50",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "Browse Products",
+            "contains"
+          ],
+          "tagName": [
+            "h1",
+            "equalTo"
+          ]
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:34:22.697Z"
+    },
+    {
+      "stepId": "3098921411",
+      "stepNumber": 10,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Search Watch",
+      "elementDOM": "<input class=\"search-input\" type=\"text\" id=\"searchInput\" placeholder=\"Try searching &quot;watch&quot;, &quot;laptop&quot;, &quot;shoes&quot;â€¦\" onkeyup=\"handleKey(event)\">",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(17, 17, 24); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 48px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-namâ€¦",
+      "elementTextContent": "",
+      "elementTagName": "input",
+      "elementAttributes": [
+        [
+          "class",
+          "search-input"
+        ],
+        [
+          "type",
+          "text"
+        ],
+        [
+          "id",
+          "searchInput"
+        ],
+        [
+          "placeholder",
+          "Try searching &quot;watch&quot;, &quot;laptop&quot;, &quot;shoes&quot;â€¦"
+        ],
+        [
+          "onkeyup",
+          "handleKey(event)"
+        ]
+      ],
+      "xpath": "//input[@id='searchInput']",
+      "dynamic": "",
+      "elementPosition": "x:40, y:304, w:1064, h:48",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "tagName": [
+            "input",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "search-input",
+              "equalTo"
+            ],
+            "type": [
+              "text",
+              "equalTo"
+            ],
+            "id": [
+              "searchInput",
+              "equalTo"
+            ],
+            "placeholder": [
+              "Try searching \"watch\", \"laptop\", \"shoes\"…",
+              "equalTo"
+            ],
+            "onkeyup": [
+              "handleKey(event)",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:34:26.869Z"
+    },
+    {
+      "stepId": "8407441595",
+      "stepNumber": 11,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Search Watch",
+      "elementDOM": "<button class=\"search-btn\" onclick=\"doSearch()\">Search</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(232, 255, 71); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 48px; border-block-end-color: rgb(10, 10, 15); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(10, 10, 15); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(10, 10, 15); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(10, 10, 15); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(10, 10, 15); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(10, 10, 15); border-left-style: none; border-left-width: 0px; border-right-color: rgb(10, 10, 15); border-right-style: none; border-right-width: 0px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(10, 10, 15); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.3) 0px 4px 20px 0px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(10, 10, 15); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(10, 10, 15); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(10, 10, 15); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; câ€¦",
+      "elementTextContent": "Search",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "search-btn"
+        ],
+        [
+          "onclick",
+          "doSearch()"
+        ]
+      ],
+      "xpath": "//button[@class='search-btn' and contains(text(),'Search')]",
+      "dynamic": "",
+      "elementPosition": "x:1116, y:304, w:110, h:48",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "Search",
+            "contains"
+          ],
+          "tagName": [
+            "button",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "search-btn",
+              "equalTo"
+            ],
+            "onclick": [
+              "doSearch()",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:34:29.587Z"
+    },
+    {
+      "stepId": "5947078593",
+      "stepNumber": 12,
+      "actionType": "Type / Input",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Search Watch",
+      "elementDOM": "<input class=\"search-input\" type=\"text\" id=\"searchInput\" placeholder=\"Try searching &quot;watch&quot;, &quot;laptop&quot;, &quot;shoes&quot;â€¦\" onkeyup=\"handleKey(event)\">",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(17, 17, 24); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 48px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-namâ€¦",
+      "elementTextContent": "",
+      "elementTagName": "input",
+      "elementAttributes": [
+        [
+          "class",
+          "search-input"
+        ],
+        [
+          "type",
+          "text"
+        ],
+        [
+          "id",
+          "searchInput"
+        ],
+        [
+          "placeholder",
+          "Try searching &quot;watch&quot;, &quot;laptop&quot;, &quot;shoes&quot;â€¦"
+        ],
+        [
+          "onkeyup",
+          "handleKey(event)"
+        ]
+      ],
+      "xpath": "//input[@id='searchInput']",
+      "dynamic": "",
+      "elementPosition": "x:40, y:304, w:1064, h:48",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Type into <input>#searchInput: \"watch\"",
+      "inputValue": "watch",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:34:48.591Z"
+    },
+    {
+      "stepId": "1404841562",
+      "stepNumber": 13,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Search Watch",
+      "elementDOM": "<button class=\"search-btn\" onclick=\"doSearch()\">Search</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(232, 255, 71); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 48px; border-block-end-color: rgb(10, 10, 15); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(10, 10, 15); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(10, 10, 15); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 10px; border-end-start-radius: 10px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(10, 10, 15); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(10, 10, 15); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(10, 10, 15); border-left-style: none; border-left-width: 0px; border-right-color: rgb(10, 10, 15); border-right-style: none; border-right-width: 0px; border-start-end-radius: 10px; border-start-start-radius: 10px; border-top-color: rgb(10, 10, 15); border-top-left-radius: 10px; border-top-right-radius: 10px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.3) 0px 4px 20px 0px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(10, 10, 15); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(10, 10, 15); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(10, 10, 15); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; câ€¦",
+      "elementTextContent": "Search",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "search-btn"
+        ],
+        [
+          "onclick",
+          "doSearch()"
+        ]
+      ],
+      "xpath": "//button[@class='search-btn' and contains(text(),'Search')]",
+      "dynamic": "",
+      "elementPosition": "x:1116, y:304, w:110, h:48",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Click on <button>",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:34:51.538Z"
+    },
+    {
+      "stepId": "6907989591",
+      "stepNumber": 14,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "3rd item",
+      "elementDOM": "<div class=\"product-info\">Tissot\n          Tissot PRX Powermatic 80\n          \n            $595\n            â˜… 4.9 (2,109)</div>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 101.167px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bâ€¦",
+      "elementTextContent": "Tissot Tissot PRX Powermatic 80 $595 â˜… 4.9 (2,109)",
+      "elementTagName": "div",
+      "elementAttributes": [
+        [
+          "class",
+          "product-info"
+        ]
+      ],
+      "xpath": "(//div[@id='productsGrid']//div[@class='product-info'])[3]",
+      "dynamic": "Yes",
+      "elementPosition": "x:644, y:401, w:280, h:101",
+      "parentElementDOM": "<div class=\"products-grid\" id=\"productsGrid\">Row 1\n        âŒš\n        \n          Seiko\n          Seiko Presage Cocktail\n          \n            $320\n            â˜… 4.8 (1,204)\n          \n        \n        ðŸ•\n        \n          Orient\n          Orient Bambino Open Heart\n          \n            $185\n            â˜… 4.6 (892)\n          \n        \n       </div>",
+      "parentElementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 488.667px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: 20px; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-botâ€¦",
+      "parentTextContent": "Row 1 âŒš Seiko Seiko Presage Cocktail $320 â˜… 4.8 (1,204) ðŸ• Orient Orient Bambino Open Heart $185 â˜… 4.6 (892)",
+      "parentTagName": "div",
+      "parentAttributes": [
+        [
+          "class",
+          "products-grid"
+        ],
+        [
+          "id",
+          "productsGrid"
+        ]
+      ],
+      "nthInPageOrParent": [
+        "3"
+      ],
+      "nthIdentifierDOM": [
+        {
+          "tagName": [
+            "div",
+            "equalTo"
+          ],
+          "attributes": [
+            {
+              "class": [
+                "product-info",
+                "equalTo"
+              ]
+            }
+          ]
+        }
+      ],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "ProductNameInList",
+      "saved": [
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:36:41.271Z"
+    },
+    {
+      "stepId": "8940562192",
+      "stepNumber": 15,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "3rd item",
+      "elementDOM": "<h1 class=\"product-detail-name\">Tissot PRX Powermatic 80</h1>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 103.5px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-botâ€¦",
+      "elementTextContent": "Tissot PRX Powermatic 80",
+      "elementTagName": "h1",
+      "elementAttributes": [
+        [
+          "class",
+          "product-detail-name"
+        ]
+      ],
+      "xpath": "//h1[@class='product-detail-name']",
+      "dynamic": "Yes",
+      "elementPosition": "x:612, y:117, w:328, h:104",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "{{bb.local.ProductNameInList}}",
+            "varContains"
+          ],
+          "tagName": [
+            "h1",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "product-detail-name",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:39:29.227Z"
+    },
+    {
+      "stepId": "2017990095",
+      "stepNumber": 16,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "3rd item",
+      "elementDOM": "<div class=\"product-detail-price\" id=\"detailPrice\" data-price=\"595\">$595 USD</div>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 46px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(232, 255, 71); border-left-style: none; border-left-width: 0px; border-right-color: rgb(232, 255, 71); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bottom-left-shapeâ€¦",
+      "elementTextContent": "$595 USD",
+      "elementTagName": "div",
+      "elementAttributes": [
+        [
+          "class",
+          "product-detail-price"
+        ],
+        [
+          "id",
+          "detailPrice"
+        ],
+        [
+          "data-price",
+          "595"
+        ]
+      ],
+      "xpath": "//div[@id='detailPrice']",
+      "dynamic": "Yes",
+      "elementPosition": "x:612, y:360, w:328, h:46",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "ProductPriceInList",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "tagName": [
+            "div",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "product-detail-price",
+              "equalTo"
+            ],
+            "id": [
+              "detailPrice",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:39:55.440Z"
+    },
+    {
+      "stepId": "1596269754",
+      "stepNumber": 17,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<button class=\"add-to-cart-btn \" id=\"addCartBtn\" onclick=\"addToCart('w3')\">+ Add to Cart</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(232, 255, 71); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 51.3333px; border-block-end-color: rgb(10, 10, 15); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(10, 10, 15); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(10, 10, 15); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 12px; border-end-start-radius: 12px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(10, 10, 15); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(10, 10, 15); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(10, 10, 15); border-left-style: none; border-left-width: 0px; border-right-color: rgb(10, 10, 15); border-right-style: none; border-right-width: 0px; border-start-end-radius: 12px; border-start-start-radius: 12px; border-top-color: rgb(10, 10, 15); border-top-left-radius: 12px; border-top-right-radius: 12px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.3) 0px 8px 32px 0px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(10, 10, 15); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(10, 10, 15); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(10, 10, 15); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normâ€¦",
+      "elementTextContent": "+ Add to Cart",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "add-to-cart-btn "
+        ],
+        [
+          "id",
+          "addCartBtn"
+        ],
+        [
+          "onclick",
+          "addToCart('w3')"
+        ]
+      ],
+      "xpath": "//button[@id='addCartBtn']",
+      "dynamic": "",
+      "elementPosition": "x:612, y:321, w:328, h:51",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Click on <button>#addCartBtn",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:41:21.063Z"
+    },
+    {
+      "stepId": "7910219478",
+      "stepNumber": 18,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<button class=\"cart-btn\" onclick=\"goCart()\">ðŸ›’ Cart 1</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: center; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 35.3333px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 8px; border-end-start-radius: 8px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 8px; border-start-start-radius: 8px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: 8px; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; â€¦",
+      "elementTextContent": "🛒 Cart 1",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "cart-btn"
+        ],
+        [
+          "onclick",
+          "goCart()"
+        ]
+      ],
+      "xpath": "//div[@id='productScreen']//button[@class='cart-btn']",
+      "dynamic": "",
+      "elementPosition": "x:1006, y:20, w:111, h:35",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "🛒 Cart 1",
+            "equalTo"
+          ],
+          "tagName": [
+            "button",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "cart-btn",
+              "equalTo"
+            ],
+            "onclick": [
+              "goCart()",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:41:27.226Z"
+    },
+    {
+      "stepId": "5394624061",
+      "stepNumber": 19,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<button class=\"cart-btn\" onclick=\"goCart()\">ðŸ›’ Cart 1</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: center; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 35.3333px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 8px; border-end-start-radius: 8px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 8px; border-start-start-radius: 8px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: 8px; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; â€¦",
+      "elementTextContent": "🛒 Cart 1",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "cart-btn"
+        ],
+        [
+          "onclick",
+          "goCart()"
+        ]
+      ],
+      "xpath": "//div[@id='productScreen']//button[@class='cart-btn']",
+      "dynamic": "",
+      "elementPosition": "x:1006, y:20, w:111, h:35",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Click on <button>",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:41:44.147Z"
+    },
+    {
+      "stepId": "3752311484",
+      "stepNumber": 20,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<div class=\"cart-item-name\">Tissot PRX Powermatic 80</div>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 19.3333px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: collapse; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bâ€¦",
+      "elementTextContent": "Tissot PRX Powermatic 80",
+      "elementTagName": "div",
+      "elementAttributes": [
+        [
+          "class",
+          "cart-item-name"
+        ]
+      ],
+      "xpath": "//div[@class='cart-item-name']",
+      "dynamic": "Yes",
+      "elementPosition": "x:121, y:260, w:184, h:19",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "{{bb.local.ProductNameInList}}",
+            "varContains"
+          ],
+          "tagName": [
+            "div",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "cart-item-name",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:42:11.212Z"
+    },
+    {
+      "stepId": "5992161527",
+      "stepNumber": 21,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Cart Price",
+      "elementDOM": "<span class=\"cart-item-price\" data-cart-price=\"595\">$595</span>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: auto; border-block-end-color: rgb(232, 255, 71); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: collapse; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(232, 255, 71); border-left-style: none; border-left-width: 0px; border-right-color: rgb(232, 255, 71); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bottom-left-shapeâ€¦",
+      "elementTextContent": "$595",
+      "elementTagName": "span",
+      "elementAttributes": [
+        [
+          "class",
+          "cart-item-price"
+        ],
+        [
+          "data-cart-price",
+          "595"
+        ]
+      ],
+      "xpath": "//span[@class='cart-item-price']",
+      "dynamic": "Yes",
+      "elementPosition": "x:836, y:268, w:64, h:19",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "{{bb.local.ProductPriceInList}}",
+            "varContains"
+          ],
+          "tagName": [
+            "span",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "cart-item-price",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:42:23.147Z"
+    },
+    {
+      "stepId": "7354328314",
+      "stepNumber": 22,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Catalogue Price",
+      "elementDOM": "<span class=\"price\" id=\"cartTotal\">$595</span>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 26.6667px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(232, 255, 71); border-left-style: none; border-left-width: 0px; border-right-color: rgb(232, 255, 71); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bottom-left-â€¦",
+      "elementTextContent": "$595",
+      "elementTagName": "span",
+      "elementAttributes": [
+        [
+          "class",
+          "price"
+        ],
+        [
+          "id",
+          "cartTotal"
+        ]
+      ],
+      "xpath": "//span[@id='cartTotal']",
+      "dynamic": "Yes",
+      "elementPosition": "x:1113, y:463, w:89, h:27",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "CataloguePrice",
+      "saved": [
+        "{{bb.local.ProductNameInList}}",
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.CataloguePrice}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "tagName": [
+            "span",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "price",
+              "equalTo"
+            ],
+            "id": [
+              "cartTotal",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:42:28.526Z"
+    },
+    {
+      "stepId": "7354328314",
+      "stepNumber": 23,
+      "actionType": "Calculate",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Compare Catalogue Price and Cart Total",
+      "elementDOM": "",
+      "elementCSS": "",
+      "elementTextContent": "",
+      "elementTagName": "",
+      "elementAttributes": [],
+      "xpath": "",
+      "dynamic": "",
+      "elementPosition": "",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductNameInList}}",
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.CataloguePrice}}"
+      ],
+      "calculate": {
+        "variable1": "{{bb.local.CataloguePrice}}",
+        "operator": "==",
+        "variable2": "{{bb.local.ProductPriceInList}}",
+        "expectedResult": "true",
+        "resultOperator": "equalTo"
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "",
+      "title": "",
+      "windowSize": {
+        "width": 0,
+        "height": 0
+      },
+      "timestamp": ""
+    }
+  ]
+}

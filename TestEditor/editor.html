@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AG Robot AutoFrame Test Editor</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f5f6fa;--bg2:#ffffff;--bg3:#f0f1f5;--bg4:#e4e6ed;
+  --accent:#4361ee;--accent2:#3a56d4;--text:#2d3142;--text2:#6b7280;
+  --pass:#27ae60;--fail:#e74c3c;--border:#d1d5db;
+  --radius:10px;--shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden;display:flex;flex-direction:column}
+a{color:var(--accent)}
+
+/* ── Top Bar ── */
+.topbar{background:var(--accent);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-shrink:0}
+.topbar h1{font-size:20px;font-weight:700;color:#fff}
+.topbar .sep{width:1px;height:28px;background:rgba(255,255,255,.3)}
+.topbar-actions{margin-left:auto;display:flex;gap:8px}
+
+/* ── Buttons ── */
+.btn{padding:8px 18px;border:none;border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2)}
+.btn-secondary{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--bg4);border-color:var(--accent)}
+.btn-danger{background:#e74c3c;color:#fff}
+.btn-danger:hover{background:#c0392b}
+.btn-sm{padding:5px 12px;font-size:11px}
+.btn-icon{background:none;border:1px solid var(--border);color:var(--text2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:14px}
+.btn-icon:hover{border-color:var(--accent);color:var(--accent);background:rgba(67,97,238,.06)}
+
+/* ── Layout ── */
+.main{display:flex;flex:1;overflow:hidden}
+.sidebar{width:320px;min-width:280px;background:#fafbfc;border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0}
+.sidebar-header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.sidebar-header h2{font-size:14px;font-weight:600;flex:1}
+.step-list{flex:1;overflow-y:auto;padding:8px}
+.step-list::-webkit-scrollbar{width:5px}
+.step-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.content{flex:1;overflow-y:auto;padding:24px 32px}
+.content::-webkit-scrollbar{width:6px}
+.content::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ── Step Cards (sidebar) ── */
+.step-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:4px;cursor:pointer;transition:all .12s;display:flex;align-items:center;gap:10px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.step-card:hover{border-color:var(--accent);background:#f0f4ff}
+.step-card.active{border-color:var(--accent);background:rgba(67,97,238,.08)}
+.step-card .snum{font-weight:700;font-size:12px;color:var(--accent);min-width:24px;text-align:center}
+.step-card .sinfo{flex:1;min-width:0}
+.step-card .saction{font-size:12px;font-weight:600;color:var(--text);line-height:1.3}
+.step-card .ssection{font-size:11px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step-card .stype-badge{font-size:10px;padding:2px 6px;border-radius:6px;font-weight:600;flex-shrink:0}
+.stype-click{background:rgba(52,152,219,.2);color:#3498db}
+.stype-input{background:rgba(155,89,182,.2);color:#9b59b6}
+.stype-verify{background:rgba(39,174,96,.2);color:#27ae60}
+.stype-calculate{background:rgba(243,156,18,.2);color:#f39c12}
+.step-card .sdrag{color:var(--text2);font-size:13px;cursor:grab;opacity:.4;flex-shrink:0;user-select:none}
+.step-card .sdrag:hover{opacity:1;color:var(--text)}
+.step-card[draggable="true"]{cursor:default}
+.step-card.drag-over{border-top:2px solid var(--accent) !important}
+.step-card .sdelete{color:var(--text2);font-size:13px;cursor:pointer;opacity:.3;margin-left:4px}
+.step-card .sdelete:hover{color:var(--fail);opacity:1}
+
+/* ── Section Headers ── */
+.section-header{display:flex;align-items:center;gap:8px;padding:8px 12px 4px;margin-top:6px}
+.section-header:first-child{margin-top:0}
+.section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);flex:1}
+.section-count{font-size:10px;color:var(--text2);background:var(--bg);padding:1px 7px;border-radius:10px}
+
+/* ── Config Panel ── */
+.config-panel{background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);padding:20px 24px;margin-bottom:20px}
+.config-panel h3{font-size:15px;font-weight:600;margin-bottom:14px;color:var(--text);display:flex;align-items:center;gap:8px}
+.config-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+
+/* ── Form Fields ── */
+.field{margin-bottom:0}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.field input,.field select,.field textarea{width:100%;padding:8px 12px;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;font-family:inherit;transition:border .15s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.field select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239a9ab0'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
+.field textarea{resize:vertical;min-height:60px;font-family:'Consolas','Courier New',monospace;font-size:12px}
+.field input[type="checkbox"]{width:auto;margin-right:6px}
+.toggle-row{display:flex;align-items:center;gap:8px;padding:8px 0}
+.toggle-row label{margin-bottom:0;font-size:13px;cursor:pointer}
+
+/* ── Step Editor Panel ── */
+.step-panel{background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);padding:20px 24px;margin-bottom:16px}
+.step-panel h3{font-size:14px;font-weight:600;margin-bottom:14px;color:var(--text);display:flex;align-items:center;gap:8px}
+.step-panel h3 .badge{font-size:10px;padding:2px 8px;border-radius:8px}
+.section-divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+
+/* ── Attribute Editor ── */
+.attr-row{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.attr-row input{flex:1}
+.attr-row .btn-icon{flex-shrink:0}
+
+/* ── Verify DOM Editor ── */
+.verify-block{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:8px}
+.verify-block h4{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px}
+.verify-row{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.verify-row input,.verify-row select{flex:1}
+
+/* ── Wait Editor ── */
+.wait-row{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.wait-row select,.wait-row input{flex:1}
+
+/* ── Calculate Editor ── */
+.calc-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end}
+.calc-grid .field{margin-bottom:0}
+
+/* ── Empty State ── */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--text2);gap:12px}
+.empty-state .icon{font-size:48px;opacity:.3}
+.empty-state p{font-size:14px}
+
+/* ── Notification ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--pass);color:#fff;padding:12px 20px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;opacity:0;transform:translateY(20px);transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* ── Confirm Modal ── */
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);z-index:9998;justify-content:center;align-items:center}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:12px;padding:24px;max-width:480px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.18)}
+.modal h3{font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.modal .modal-body{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:20px}
+.modal .modal-body .change-item{padding:4px 0;border-bottom:1px solid var(--bg3)}
+.modal .modal-body .change-item:last-child{border-bottom:none}
+.modal .modal-body .change-label{font-weight:600;color:var(--text);font-size:12px}
+.modal .modal-body .change-old{color:var(--fail);font-size:12px;text-decoration:line-through}
+.modal .modal-body .change-new{color:var(--pass);font-size:12px}
+.modal .modal-body .delete-info{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:10px 14px;color:#991b1b;font-size:12px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end}
+
+/* ── File Drop Zone ── */
+.dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:40px;text-align:center;color:var(--text2);cursor:pointer;transition:all .2s;margin-bottom:16px}
+.dropzone:hover,.dropzone.dragover{border-color:var(--accent);color:var(--accent);background:rgba(67,97,238,.03)}
+.dropzone .icon{font-size:32px;margin-bottom:8px;opacity:.5}
+.dropzone p{font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <h1>AG Robot AutoFrame</h1>
+  <div class="sep"></div>
+  <span style="font-size:13px;color:rgba(255,255,255,.8)" id="file-label">No file loaded</span>
+  <div class="topbar-actions">
+    <button class="btn btn-secondary" onclick="newConfig()">New Config</button>
+    <button class="btn btn-secondary" onclick="document.getElementById('file-input').click()">Open JSON</button>
+    <input type="file" id="file-input" accept=".json" style="display:none" onchange="loadFile(event)">
+    <button class="btn btn-primary" onclick="saveFile()">Save</button>
+    <button class="btn btn-secondary" onclick="downloadFile()">Download</button>
+  </div>
+</div>
+
+<!-- Main Layout -->
+<div class="main">
+  <!-- Sidebar: Step List -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Steps</h2>
+      <button class="btn btn-sm btn-primary" onclick="addStep()">+ Add Step</button>
+    </div>
+    <div class="step-list" id="step-list"></div>
+  </div>
+
+  <!-- Content: Editor -->
+  <div class="content" id="editor-content">
+    <div class="empty-state" id="empty-state">
+      <div class="icon">&#128221;</div>
+      <p>Open a JSON file or create a new config to get started</p>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm Modal -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <h3 id="modal-title"></h3>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="modal-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-danger" id="modal-confirm" onclick="confirmModal()">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── State ───
+let config = null;
+let activeStepIdx = -1;
+let fileHandle = null;
+let fileName = '';
+
+const ACTION_TYPES = ['Click', 'Type / Input', 'Verify', 'Calculate'];
+const BROWSERS = ['chrome', 'edge', 'safari'];
+const WAIT_TYPES = ['', 'elementVisible', 'elementClickable', 'elementPresent', 'elementNotVisible', 'textPresent', 'pageLoad', 'custom'];
+const VERIFY_OPERATORS = ['equalTo', 'contains', 'varContains', 'eleContains'];
+const CALC_OPERATORS = ['==', '!=', '>', '<', '>=', '<=', 'contains'];
+const RESULT_OPERATORS = ['equalTo', 'contains'];
+
+function defaultConfig() {
+  return {
+    browser: 'chrome', headed: true, implicitWait: 3000,
+    startURL: '', steps: []
+  };
+}
+
+function defaultStep(num) {
+  return {
+    stepId: '' + Math.floor(Math.random() * 9e9 + 1e9),
+    stepNumber: num,
+    actionType: 'Click',
+    skip: 'No',
+    stopOnFailure: 'Yes',
+    sectionName: '',
+    elementDOM: '',
+    elementCSS: '',
+    elementTextContent: '',
+    elementTagName: '',
+    elementAttributes: [],
+    xpath: '',
+    dynamic: '',
+    elementPosition: '',
+    parentElementDOM: '',
+    parentElementCSS: '',
+    parentTextContent: '',
+    parentTagName: '',
+    parentAttributes: [],
+    nthInPageOrParent: [],
+    nthIdentifierDOM: [],
+    nthIdentifierCSS: [],
+    wait: [{ waitType: '', Timeout: 0 }],
+    agent: '',
+    save: '',
+    saved: [],
+    calculate: { variable1: '', operator: '', variable2: '', expectedResult: '', resultOperator: '' },
+    description: '',
+    inputValue: '',
+    verifyDOM: [],
+    verifyCSS: [],
+    selectOptions: '',
+    selectedOption: '',
+    url: '',
+    title: '',
+    windowSize: { width: 0, height: 0 },
+    timestamp: ''
+  };
+}
+
+// ─── File Operations ───
+function newConfig() {
+  config = defaultConfig();
+  activeStepIdx = -1;
+  fileName = 'output.json';
+  document.getElementById('file-label').textContent = 'New config (unsaved)';
+  render();
+}
+
+function loadFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  fileName = file.name;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    try {
+      config = JSON.parse(ev.target.result);
+      activeStepIdx = -1;
+      lastSavedSnapshot = takeSnapshot();
+      document.getElementById('file-label').textContent = fileName;
+      render();
+      toast('Loaded ' + fileName);
+    } catch(err) {
+      toast('Invalid JSON: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+// ─── Snapshot for change tracking ───
+let lastSavedSnapshot = null;
+
+function takeSnapshot() {
+  return JSON.parse(JSON.stringify(config));
+}
+
+function onFileLoaded() {
+  lastSavedSnapshot = takeSnapshot();
+}
+
+function saveFile() {
+  if (!config) return toast('No config to save');
+  downloadFile();
+}
+
+function downloadFile() {
+  if (!config) return toast('No config to download');
+  syncFromForm();
+
+  // Build change summary
+  const changes = getChangeSummary();
+  if (changes.length === 0) {
+    doDownload();
+    return;
+  }
+
+  let bodyHtml = '<div style="margin-bottom:8px;font-size:13px;color:var(--text)">The following changes will be saved:</div>';
+  changes.forEach(c => {
+    bodyHtml += `<div class="change-item">
+      <div class="change-label">${esc(c.label)}</div>
+      ${c.old !== undefined ? `<div class="change-old">${esc(c.old)}</div>` : ''}
+      <div class="change-new">${esc(c.new)}</div>
+    </div>`;
+  });
+
+  showModal('Save Changes', bodyHtml, 'Save', 'btn-primary', function() {
+    doDownload();
+  });
+}
+
+function doDownload() {
+  const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = fileName || 'output.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  lastSavedSnapshot = takeSnapshot();
+  toast('Downloaded ' + (fileName || 'output.json'));
+}
+
+function getChangeSummary() {
+  const changes = [];
+  if (!lastSavedSnapshot) {
+    changes.push({ label: 'New configuration', new: config.steps.length + ' steps, browser: ' + config.browser });
+    return changes;
+  }
+
+  const old = lastSavedSnapshot;
+  const cur = config;
+
+  // Config-level changes
+  if (old.browser !== cur.browser) changes.push({ label: 'Browser', old: old.browser, new: cur.browser });
+  if (old.headed !== cur.headed) changes.push({ label: 'Headed', old: String(old.headed), new: String(cur.headed) });
+  if (old.implicitWait !== cur.implicitWait) changes.push({ label: 'Implicit Wait', old: old.implicitWait + 'ms', new: cur.implicitWait + 'ms' });
+  if (old.startURL !== cur.startURL) changes.push({ label: 'Start URL', old: old.startURL, new: cur.startURL });
+
+  // Step count changes
+  if (old.steps.length !== cur.steps.length) {
+    changes.push({ label: 'Step count', old: old.steps.length + ' steps', new: cur.steps.length + ' steps' });
+  }
+
+  // Per-step changes (compare by stepId)
+  const oldMap = {};
+  old.steps.forEach(s => oldMap[s.stepId] = s);
+
+  cur.steps.forEach(s => {
+    const prev = oldMap[s.stepId];
+    if (!prev) {
+      changes.push({ label: 'Step ' + s.stepNumber + ' (new)', new: s.actionType + ' in "' + (s.sectionName || 'Untitled') + '"' });
+      return;
+    }
+    const fields = ['actionType', 'sectionName', 'xpath', 'skip', 'stopOnFailure', 'inputValue', 'description', 'save'];
+    fields.forEach(f => {
+      if (prev[f] !== s[f] && (prev[f] || s[f])) {
+        changes.push({ label: 'Step ' + s.stepNumber + ' > ' + f, old: String(prev[f] || ''), new: String(s[f] || '') });
+      }
+    });
+    if (prev.stepNumber !== s.stepNumber) {
+      changes.push({ label: 'Step "' + s.stepId + '" reordered', old: 'Position ' + prev.stepNumber, new: 'Position ' + s.stepNumber });
+    }
+  });
+
+  // Deleted steps
+  const curIds = new Set(cur.steps.map(s => s.stepId));
+  old.steps.forEach(s => {
+    if (!curIds.has(s.stepId)) {
+      changes.push({ label: 'Step deleted', old: 'Step ' + s.stepNumber + ': ' + s.actionType + ' in "' + (s.sectionName || '') + '"', new: '(removed)' });
+    }
+  });
+
+  return changes;
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ─── Modal ───
+let modalCallback = null;
+
+function showModal(title, bodyHtml, confirmText, confirmClass, onConfirm) {
+  document.getElementById('modal-title').innerHTML = title;
+  document.getElementById('modal-body').innerHTML = bodyHtml;
+  const btn = document.getElementById('modal-confirm');
+  btn.textContent = confirmText || 'Confirm';
+  btn.className = 'btn ' + (confirmClass || 'btn-danger');
+  modalCallback = onConfirm;
+  document.getElementById('modal-overlay').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('show');
+  modalCallback = null;
+}
+
+function confirmModal() {
+  if (modalCallback) modalCallback();
+  closeModal();
+}
+
+// ─── Rendering ───
+function render() {
+  renderStepList();
+  renderEditor();
+}
+
+let dragSrcIdx = null;
+
+function renderStepList() {
+  const list = document.getElementById('step-list');
+  if (!config) { list.innerHTML = ''; return; }
+
+  let html = '';
+  let currentSection = null;
+
+  config.steps.forEach((s, i) => {
+    const section = s.sectionName || 'Untitled';
+
+    // Render section header when section changes
+    if (section !== currentSection) {
+      currentSection = section;
+      html += `<div class="section-header" data-section="${esc(section)}">
+        <span class="section-label">${esc(section)}</span>
+        <span class="section-count">${config.steps.filter(st => (st.sectionName || 'Untitled') === section).length}</span>
+      </div>`;
+    }
+
+    const typeClass = s.actionType === 'Click' ? 'stype-click' :
+      s.actionType === 'Type / Input' ? 'stype-input' :
+      s.actionType === 'Verify' ? 'stype-verify' : 'stype-calculate';
+    html += `<div class="step-card ${i === activeStepIdx ? 'active' : ''}" draggable="true" data-idx="${i}"
+        ondragstart="onDragStart(event,${i})" ondragover="onDragOver(event)" ondragenter="onDragEnter(event)"
+        ondragleave="onDragLeave(event)" ondrop="onDrop(event,${i})" ondragend="onDragEnd(event)"
+        onclick="selectStep(${i})">
+      <span class="sdrag" title="Drag to reorder">&#9776;</span>
+      <span class="snum">${s.stepNumber}</span>
+      <div class="sinfo">
+        <div class="ssection">${esc(s.description || s.xpath || s.actionType)}</div>
+      </div>
+      <span class="stype-badge ${typeClass}">${esc(s.actionType)}</span>
+      <span class="sdelete" onclick="event.stopPropagation();deleteStep(${i})" title="Delete step">&#10005;</span>
+    </div>`;
+  });
+
+  list.innerHTML = html;
+}
+
+function onDragStart(e, idx) {
+  syncFromForm();
+  dragSrcIdx = idx;
+  e.dataTransfer.effectAllowed = 'move';
+  e.target.style.opacity = '0.4';
+}
+function onDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+}
+function onDragEnter(e) {
+  const card = e.target.closest('.step-card');
+  if (card) card.style.borderTopColor = 'var(--accent)';
+}
+function onDragLeave(e) {
+  const card = e.target.closest('.step-card');
+  if (card) card.style.borderTopColor = '';
+}
+function onDrop(e, targetIdx) {
+  e.preventDefault();
+  const card = e.target.closest('.step-card');
+  if (card) card.style.borderTopColor = '';
+  if (dragSrcIdx === null || dragSrcIdx === targetIdx) return;
+
+  const moved = config.steps.splice(dragSrcIdx, 1)[0];
+  config.steps.splice(targetIdx, 0, moved);
+  config.steps.forEach((s, i) => s.stepNumber = i + 1);
+
+  // Update activeStepIdx to follow the selected step
+  if (activeStepIdx === dragSrcIdx) {
+    activeStepIdx = targetIdx;
+  } else if (dragSrcIdx < activeStepIdx && targetIdx >= activeStepIdx) {
+    activeStepIdx--;
+  } else if (dragSrcIdx > activeStepIdx && targetIdx <= activeStepIdx) {
+    activeStepIdx++;
+  }
+
+  dragSrcIdx = null;
+  render();
+}
+function onDragEnd(e) {
+  e.target.style.opacity = '1';
+  document.querySelectorAll('.step-card').forEach(c => c.style.borderTopColor = '');
+  dragSrcIdx = null;
+}
+
+function selectStep(idx) {
+  syncFromForm();
+  activeStepIdx = idx;
+  render();
+}
+
+function addStep() {
+  if (!config) { config = defaultConfig(); fileName = 'output.json'; document.getElementById('file-label').textContent = 'New config (unsaved)'; }
+  const num = config.steps.length > 0 ? config.steps[config.steps.length - 1].stepNumber + 1 : 1;
+  config.steps.push(defaultStep(num));
+  activeStepIdx = config.steps.length - 1;
+  render();
+  toast('Step ' + num + ' added');
+}
+
+function deleteStep(idx) {
+  if (!config) return;
+  const s = config.steps[idx];
+  const bodyHtml = `<div class="delete-info">
+    <strong>Step ${s.stepNumber}</strong> will be permanently removed.<br><br>
+    <strong>Action:</strong> ${esc(s.actionType)}<br>
+    <strong>Section:</strong> ${esc(s.sectionName || 'Untitled')}<br>
+    ${s.xpath ? '<strong>XPath:</strong> <code>' + esc(s.xpath) + '</code><br>' : ''}
+    ${s.description ? '<strong>Description:</strong> ' + esc(s.description) + '<br>' : ''}
+    ${s.inputValue ? '<strong>Input:</strong> ' + esc(s.inputValue) + '<br>' : ''}
+  </div>
+  <div style="margin-top:8px;font-size:12px;color:var(--text2)">Remaining steps will be renumbered automatically.</div>`;
+
+  showModal('Delete Step ' + s.stepNumber + '?', bodyHtml, 'Delete', 'btn-danger', function() {
+    config.steps.splice(idx, 1);
+    config.steps.forEach((s, i) => s.stepNumber = i + 1);
+    if (activeStepIdx >= config.steps.length) activeStepIdx = config.steps.length - 1;
+    if (config.steps.length === 0) activeStepIdx = -1;
+    render();
+    toast('Step deleted');
+  });
+}
+
+function moveStep(idx, dir) {
+  if (!config) return;
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= config.steps.length) return;
+  syncFromForm();
+  [config.steps[idx], config.steps[newIdx]] = [config.steps[newIdx], config.steps[idx]];
+  config.steps.forEach((s, i) => s.stepNumber = i + 1);
+  activeStepIdx = newIdx;
+  render();
+}
+
+function duplicateStep(idx) {
+  if (!config) return;
+  syncFromForm();
+  const copy = JSON.parse(JSON.stringify(config.steps[idx]));
+  copy.stepId = '' + Math.floor(Math.random() * 9e9 + 1e9);
+  config.steps.splice(idx + 1, 0, copy);
+  config.steps.forEach((s, i) => s.stepNumber = i + 1);
+  activeStepIdx = idx + 1;
+  render();
+  toast('Step duplicated');
+}
+
+function renderEditor() {
+  const content = document.getElementById('editor-content');
+  if (!config) {
+    content.innerHTML = `<div class="empty-state" id="empty-state">
+      <div class="icon">&#128221;</div>
+      <p>Open a JSON file or create a new config to get started</p>
+    </div>`;
+    return;
+  }
+
+  let html = renderConfigPanel();
+
+  if (activeStepIdx >= 0 && activeStepIdx < config.steps.length) {
+    html += renderStepEditor(config.steps[activeStepIdx], activeStepIdx);
+  } else {
+    html += `<div class="empty-state" style="height:300px">
+      <div class="icon">&#128073;</div>
+      <p>Select a step from the sidebar or add a new one</p>
+    </div>`;
+  }
+
+  content.innerHTML = html;
+}
+
+function renderConfigPanel() {
+  const c = config;
+  return `<div class="config-panel">
+    <h3>&#9881; Configuration</h3>
+    <div class="config-grid">
+      <div class="field">
+        <label>Browser</label>
+        <select id="cfg-browser" onchange="config.browser=this.value">
+          ${BROWSERS.map(b => `<option value="${b}" ${c.browser === b ? 'selected' : ''}>${b.charAt(0).toUpperCase() + b.slice(1)}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Headed Mode</label>
+        <select id="cfg-headed" onchange="config.headed=this.value==='true'">
+          <option value="true" ${c.headed ? 'selected' : ''}>True (visible)</option>
+          <option value="false" ${!c.headed ? 'selected' : ''}>False (headless)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Implicit Wait (ms)</label>
+        <input type="number" id="cfg-wait" value="${c.implicitWait}" onchange="config.implicitWait=parseInt(this.value)||0">
+      </div>
+      <div class="field">
+        <label>Start URL</label>
+        <input type="text" id="cfg-url" value="${esc(c.startURL)}" onchange="config.startURL=this.value" placeholder="ecommerce-test-playground.html or https://...">
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderStepEditor(step, idx) {
+  const s = step;
+  const typeClass = s.actionType === 'Click' ? 'stype-click' :
+    s.actionType === 'Type / Input' ? 'stype-input' :
+    s.actionType === 'Verify' ? 'stype-verify' : 'stype-calculate';
+
+  let html = `<div class="step-panel">
+    <h3>
+      Step ${s.stepNumber}
+      <span class="badge ${typeClass}">${esc(s.actionType)}</span>
+      <span style="margin-left:auto;display:flex;gap:4px">
+        <button class="btn-icon" onclick="moveStep(${idx},-1)" title="Move up">&#9650;</button>
+        <button class="btn-icon" onclick="moveStep(${idx},1)" title="Move down">&#9660;</button>
+        <button class="btn-icon" onclick="duplicateStep(${idx})" title="Duplicate">&#10697;</button>
+      </span>
+    </h3>
+
+    <div class="config-grid">
+      <div class="field">
+        <label>Action Type</label>
+        <select id="s-actionType" onchange="onActionTypeChange(this.value)">
+          ${ACTION_TYPES.map(a => `<option value="${a}" ${s.actionType === a ? 'selected' : ''}>${a}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Section Name</label>
+        <input type="text" id="s-sectionName" value="${esc(s.sectionName)}">
+      </div>
+      <div class="field">
+        <label>Skip</label>
+        <select id="s-skip">
+          <option value="No" ${s.skip === 'No' ? 'selected' : ''}>No</option>
+          <option value="Yes" ${s.skip === 'Yes' ? 'selected' : ''}>Yes</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Stop on Failure</label>
+        <select id="s-stopOnFailure">
+          <option value="Yes" ${s.stopOnFailure === 'Yes' ? 'selected' : ''}>Yes</option>
+          <option value="No" ${s.stopOnFailure === 'No' ? 'selected' : ''}>No</option>
+        </select>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Element Info -->
+    <h3 style="font-size:13px;color:var(--text2)">&#127919; Element</h3>
+    <div class="config-grid" style="margin-bottom:12px">
+      <div class="field" style="grid-column:1/-1">
+        <label>XPath</label>
+        <input type="text" id="s-xpath" value="${esc(s.xpath)}" style="font-family:Consolas,monospace;font-size:12px">
+      </div>
+      <div class="field" style="grid-column:1/-1">
+        <label>Element DOM</label>
+        <textarea id="s-elementDOM" rows="2">${esc(s.elementDOM)}</textarea>
+      </div>
+      <div class="field">
+        <label>Tag Name</label>
+        <input type="text" id="s-elementTagName" value="${esc(s.elementTagName)}">
+      </div>
+      <div class="field">
+        <label>Text Content</label>
+        <input type="text" id="s-elementTextContent" value="${esc(s.elementTextContent)}">
+      </div>
+      <div class="field">
+        <label>Dynamic</label>
+        <input type="text" id="s-dynamic" value="${esc(s.dynamic)}" placeholder="Leave empty if not dynamic">
+      </div>
+      <div class="field">
+        <label>Position</label>
+        <input type="text" id="s-elementPosition" value="${esc(s.elementPosition)}" placeholder="x:0, y:0, w:0, h:0">
+      </div>
+    </div>
+
+    <!-- Element Attributes -->
+    <div style="margin-bottom:12px">
+      <label style="display:block;font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Element Attributes</label>
+      <div id="attr-list">
+        ${(s.elementAttributes || []).map((a, ai) => `<div class="attr-row">
+          <input type="text" value="${esc(a[0])}" placeholder="name" class="attr-name" data-ai="${ai}">
+          <input type="text" value="${esc(a[1])}" placeholder="value" class="attr-val" data-ai="${ai}">
+          <button class="btn-icon btn-sm" onclick="removeAttr(${ai})">&#10005;</button>
+        </div>`).join('')}
+      </div>
+      <button class="btn btn-sm btn-secondary" onclick="addAttr()" style="margin-top:4px">+ Add Attribute</button>
+      <button class="btn btn-sm btn-secondary" onclick="autofillAttrsFromDOM()" style="margin-top:4px;margin-left:4px">Auto-fill from DOM</button>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Parent Element -->
+    <details style="margin-bottom:12px">
+      <summary style="font-size:12px;font-weight:600;color:var(--text2);cursor:pointer;margin-bottom:8px">Parent Element (optional)</summary>
+      <div class="config-grid" style="margin-top:8px">
+        <div class="field" style="grid-column:1/-1">
+          <label>Parent DOM</label>
+          <textarea id="s-parentElementDOM" rows="2">${esc(s.parentElementDOM)}</textarea>
+        </div>
+        <div class="field">
+          <label>Parent Tag</label>
+          <input type="text" id="s-parentTagName" value="${esc(s.parentTagName)}">
+        </div>
+        <div class="field">
+          <label>Parent Text</label>
+          <input type="text" id="s-parentTextContent" value="${esc(s.parentTextContent)}">
+        </div>
+      </div>
+      <div style="margin-top:8px">
+        <label style="display:block;font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Parent Attributes</label>
+        <div id="parent-attr-list">
+          ${(s.parentAttributes || []).map((a, ai) => `<div class="attr-row">
+            <input type="text" value="${esc(a[0])}" placeholder="name" class="pattr-name" data-ai="${ai}">
+            <input type="text" value="${esc(a[1])}" placeholder="value" class="pattr-val" data-ai="${ai}">
+            <button class="btn-icon btn-sm" onclick="removeParentAttr(${ai})">&#10005;</button>
+          </div>`).join('')}
+        </div>
+        <button class="btn btn-sm btn-secondary" onclick="addParentAttr()" style="margin-top:4px">+ Add Attribute</button>
+      </div>
+    </details>
+
+    <hr class="section-divider">
+
+    <!-- Nth / Dynamic Identifiers -->
+    <details style="margin-bottom:12px">
+      <summary style="font-size:12px;font-weight:600;color:var(--text2);cursor:pointer;margin-bottom:8px">Nth Identifiers (optional)</summary>
+      <div class="config-grid" style="margin-top:8px">
+        <div class="field" style="grid-column:1/-1">
+          <label>nthInPageOrParent (JSON array)</label>
+          <input type="text" id="s-nthInPageOrParent" value="${esc(JSON.stringify(s.nthInPageOrParent || []))}" placeholder="[]">
+        </div>
+        <div class="field" style="grid-column:1/-1">
+          <label>nthIdentifierDOM (JSON array)</label>
+          <input type="text" id="s-nthIdentifierDOM" value="${esc(JSON.stringify(s.nthIdentifierDOM || []))}" placeholder="[]">
+        </div>
+      </div>
+    </details>
+
+    <hr class="section-divider">
+
+    <!-- Wait -->
+    <h3 style="font-size:13px;color:var(--text2)">&#9202; Wait Strategies</h3>
+    <div id="wait-list">
+      ${(s.wait || []).map((w, wi) => `<div class="wait-row">
+        <select class="wait-type" data-wi="${wi}">
+          ${WAIT_TYPES.map(wt => `<option value="${wt}" ${w.waitType === wt ? 'selected' : ''}>${wt || '(none)'}</option>`).join('')}
+        </select>
+        <input type="number" class="wait-timeout" data-wi="${wi}" value="${w.Timeout}" placeholder="ms" style="max-width:120px">
+        <button class="btn-icon btn-sm" onclick="removeWait(${wi})">&#10005;</button>
+      </div>`).join('')}
+    </div>
+    <button class="btn btn-sm btn-secondary" onclick="addWait()" style="margin-top:4px;margin-bottom:12px">+ Add Wait</button>
+
+    <hr class="section-divider">`;
+
+  // Action-specific sections
+  if (s.actionType === 'Type / Input') {
+    html += `
+    <h3 style="font-size:13px;color:var(--text2)">&#9998; Input</h3>
+    <div class="field" style="margin-bottom:12px">
+      <label>Input Value</label>
+      <input type="text" id="s-inputValue" value="${esc(s.inputValue)}">
+    </div>`;
+  }
+
+  if (s.actionType === 'Verify') {
+    html += `
+    <h3 style="font-size:13px;color:var(--text2)">&#9989; Verify DOM</h3>
+    <div id="verify-list">
+      ${(s.verifyDOM || []).map((v, vi) => renderVerifyBlock(v, vi)).join('')}
+    </div>
+    <button class="btn btn-sm btn-secondary" onclick="addVerifyBlock()" style="margin-top:4px;margin-bottom:12px">+ Add Verification</button>
+    <button class="btn btn-sm btn-secondary" onclick="autofillVerifyFromElement()" style="margin-top:4px;margin-left:4px;margin-bottom:12px">Auto-fill from Element</button>`;
+  }
+
+  if (s.actionType === 'Calculate') {
+    const calc = s.calculate || {};
+    html += `
+    <h3 style="font-size:13px;color:var(--text2)">&#128290; Calculate</h3>
+    <div class="config-grid" style="margin-bottom:12px">
+      <div class="field">
+        <label>Variable 1</label>
+        <input type="text" id="s-calc-var1" value="${esc(calc.variable1)}" placeholder="{{bb.local.VarName}}">
+      </div>
+      <div class="field">
+        <label>Operator</label>
+        <select id="s-calc-op">
+          ${CALC_OPERATORS.map(o => `<option value="${o}" ${calc.operator === o ? 'selected' : ''}>${o}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Variable 2</label>
+        <input type="text" id="s-calc-var2" value="${esc(calc.variable2)}" placeholder="{{bb.local.VarName}}">
+      </div>
+      <div class="field">
+        <label>Expected Result</label>
+        <input type="text" id="s-calc-expected" value="${esc(calc.expectedResult)}">
+      </div>
+      <div class="field">
+        <label>Result Operator</label>
+        <select id="s-calc-resultOp">
+          ${RESULT_OPERATORS.map(o => `<option value="${o}" ${calc.resultOperator === o ? 'selected' : ''}>${o}</option>`).join('')}
+        </select>
+      </div>
+    </div>`;
+  }
+
+  // Save variable
+  html += `<hr class="section-divider">
+    <h3 style="font-size:13px;color:var(--text2)">&#128190; Variable Storage</h3>
+    <div class="config-grid" style="margin-bottom:12px">
+      <div class="field">
+        <label>Save As Variable</label>
+        <input type="text" id="s-save" value="${esc(s.save)}" placeholder="VariableName (stored as bb.local.X)">
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:12px">
+      <label>Saved Variables (read-only)</label>
+      <input type="text" id="s-saved" value="${esc(JSON.stringify(s.saved || []))}" readonly style="opacity:.6">
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="field" style="margin-bottom:12px">
+      <label>Description</label>
+      <input type="text" id="s-description" value="${esc(s.description)}">
+    </div>
+
+    <details>
+      <summary style="font-size:12px;font-weight:600;color:var(--text2);cursor:pointer;margin-bottom:8px">Metadata (optional)</summary>
+      <div class="config-grid" style="margin-top:8px">
+        <div class="field">
+          <label>URL</label>
+          <input type="text" id="s-url" value="${esc(s.url)}">
+        </div>
+        <div class="field">
+          <label>Title</label>
+          <input type="text" id="s-title" value="${esc(s.title)}">
+        </div>
+        <div class="field">
+          <label>Window Width</label>
+          <input type="number" id="s-winW" value="${(s.windowSize||{}).width||0}">
+        </div>
+        <div class="field">
+          <label>Window Height</label>
+          <input type="number" id="s-winH" value="${(s.windowSize||{}).height||0}">
+        </div>
+        <div class="field">
+          <label>Timestamp</label>
+          <input type="text" id="s-timestamp" value="${esc(s.timestamp)}">
+        </div>
+      </div>
+    </details>
+  </div>`;
+
+  return html;
+}
+
+function renderVerifyBlock(v, vi) {
+  const tc = v.textContent || ['', 'equalTo'];
+  const tn = v.tagName || ['', 'equalTo'];
+  const attrs = v.attributes || {};
+
+  let attrHtml = Object.entries(attrs).map(([k, arr]) =>
+    `<div class="verify-row">
+      <input type="text" value="${esc(k)}" placeholder="attr name" class="vattr-name" data-vi="${vi}">
+      <input type="text" value="${esc(arr[0])}" placeholder="expected" class="vattr-val" data-vi="${vi}">
+      <select class="vattr-op" data-vi="${vi}">
+        ${VERIFY_OPERATORS.map(o => `<option value="${o}" ${arr[1] === o ? 'selected' : ''}>${o}</option>`).join('')}
+      </select>
+      <button class="btn-icon btn-sm" onclick="removeVerifyAttr(${vi},'${esc(k)}')">&#10005;</button>
+    </div>`
+  ).join('');
+
+  return `<div class="verify-block" data-vi="${vi}">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <h4>Verification #${vi + 1}</h4>
+      <button class="btn-icon btn-sm" onclick="removeVerifyBlock(${vi})" title="Remove">&#10005;</button>
+    </div>
+    <div class="verify-row">
+      <span style="font-size:11px;color:var(--text2);min-width:80px">Text Content</span>
+      <input type="text" value="${esc(tc[0])}" class="vtc-val" data-vi="${vi}" placeholder="expected text">
+      <select class="vtc-op" data-vi="${vi}">
+        ${VERIFY_OPERATORS.map(o => `<option value="${o}" ${tc[1] === o ? 'selected' : ''}>${o}</option>`).join('')}
+      </select>
+    </div>
+    <div class="verify-row">
+      <span style="font-size:11px;color:var(--text2);min-width:80px">Tag Name</span>
+      <input type="text" value="${esc(tn[0])}" class="vtn-val" data-vi="${vi}" placeholder="expected tag">
+      <select class="vtn-op" data-vi="${vi}">
+        ${VERIFY_OPERATORS.map(o => `<option value="${o}" ${tn[1] === o ? 'selected' : ''}>${o}</option>`).join('')}
+      </select>
+    </div>
+    <div style="margin-top:8px">
+      <span style="font-size:11px;color:var(--text2)">Attributes</span>
+      <div class="vattr-list" data-vi="${vi}">${attrHtml}</div>
+      <button class="btn btn-sm btn-secondary" onclick="addVerifyAttr(${vi})" style="margin-top:4px">+ Attr</button>
+    </div>
+  </div>`;
+}
+
+// ─── Sync form data back to config ───
+function syncFromForm() {
+  if (!config) return;
+
+  // Always sync config-level fields
+  const cfgVal = id => { const el = document.getElementById(id); return el ? el.value : null; };
+  const b = cfgVal('cfg-browser'); if (b !== null) config.browser = b;
+  const h = cfgVal('cfg-headed'); if (h !== null) config.headed = h === 'true';
+  const w = cfgVal('cfg-wait'); if (w !== null) config.implicitWait = parseInt(w) || 0;
+  const u = cfgVal('cfg-url'); if (u !== null) config.startURL = u;
+
+  if (activeStepIdx < 0 || activeStepIdx >= config.steps.length) return;
+  const s = config.steps[activeStepIdx];
+
+  const val = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+
+  s.sectionName = val('s-sectionName');
+  s.actionType = val('s-actionType');
+  s.skip = val('s-skip');
+  s.stopOnFailure = val('s-stopOnFailure');
+  s.xpath = val('s-xpath');
+  s.elementDOM = val('s-elementDOM');
+  s.elementTagName = val('s-elementTagName');
+  s.elementTextContent = val('s-elementTextContent');
+  s.dynamic = val('s-dynamic');
+  s.elementPosition = val('s-elementPosition');
+  s.parentElementDOM = val('s-parentElementDOM');
+  s.parentTagName = val('s-parentTagName');
+  s.parentTextContent = val('s-parentTextContent');
+  s.description = val('s-description');
+  s.save = val('s-save');
+  s.url = val('s-url');
+  s.title = val('s-title');
+  s.timestamp = val('s-timestamp');
+  s.windowSize = { width: parseInt(val('s-winW')) || 0, height: parseInt(val('s-winH')) || 0 };
+
+  try { s.nthInPageOrParent = JSON.parse(val('s-nthInPageOrParent') || '[]'); } catch(e) {}
+  try { s.nthIdentifierDOM = JSON.parse(val('s-nthIdentifierDOM') || '[]'); } catch(e) {}
+
+  // Attributes
+  const attrNames = document.querySelectorAll('.attr-name');
+  const attrVals = document.querySelectorAll('.attr-val');
+  s.elementAttributes = [];
+  attrNames.forEach((el, i) => {
+    if (el.value || attrVals[i].value) s.elementAttributes.push([el.value, attrVals[i].value]);
+  });
+
+  // Parent attributes
+  const pattrNames = document.querySelectorAll('.pattr-name');
+  const pattrVals = document.querySelectorAll('.pattr-val');
+  s.parentAttributes = [];
+  pattrNames.forEach((el, i) => {
+    if (el.value || pattrVals[i].value) s.parentAttributes.push([el.value, pattrVals[i].value]);
+  });
+
+  // Wait
+  const waitTypes = document.querySelectorAll('.wait-type');
+  const waitTimeouts = document.querySelectorAll('.wait-timeout');
+  s.wait = [];
+  waitTypes.forEach((el, i) => {
+    s.wait.push({ waitType: el.value, Timeout: parseInt(waitTimeouts[i].value) || 0 });
+  });
+  if (s.wait.length === 0) s.wait = [{ waitType: '', Timeout: 0 }];
+
+  // Input
+  if (s.actionType === 'Type / Input') {
+    s.inputValue = val('s-inputValue');
+  }
+
+  // Calculate
+  if (s.actionType === 'Calculate') {
+    s.calculate = {
+      variable1: val('s-calc-var1'),
+      operator: val('s-calc-op'),
+      variable2: val('s-calc-var2'),
+      expectedResult: val('s-calc-expected'),
+      resultOperator: val('s-calc-resultOp')
+    };
+  }
+
+  // VerifyDOM
+  if (s.actionType === 'Verify') {
+    syncVerifyDOM(s);
+  }
+}
+
+function syncVerifyDOM(s) {
+  const blocks = document.querySelectorAll('.verify-block');
+  s.verifyDOM = [];
+  blocks.forEach((block, vi) => {
+    const entry = {};
+
+    const tcVal = block.querySelector('.vtc-val');
+    const tcOp = block.querySelector('.vtc-op');
+    if (tcVal && tcVal.value) entry.textContent = [tcVal.value, tcOp ? tcOp.value : 'equalTo'];
+
+    const tnVal = block.querySelector('.vtn-val');
+    const tnOp = block.querySelector('.vtn-op');
+    if (tnVal && tnVal.value) entry.tagName = [tnVal.value, tnOp ? tnOp.value : 'equalTo'];
+
+    const vattrNames = block.querySelectorAll('.vattr-name');
+    const vattrVals = block.querySelectorAll('.vattr-val');
+    const vattrOps = block.querySelectorAll('.vattr-op');
+    if (vattrNames.length > 0) {
+      entry.attributes = {};
+      vattrNames.forEach((el, i) => {
+        if (el.value) entry.attributes[el.value] = [vattrVals[i].value, vattrOps[i].value];
+      });
+    }
+
+    s.verifyDOM.push(entry);
+  });
+}
+
+// ─── Dynamic Add/Remove ───
+function addAttr() {
+  syncFromForm();
+  config.steps[activeStepIdx].elementAttributes.push(['', '']);
+  renderEditor();
+}
+function removeAttr(ai) {
+  syncFromForm();
+  config.steps[activeStepIdx].elementAttributes.splice(ai, 1);
+  renderEditor();
+}
+function addParentAttr() {
+  syncFromForm();
+  config.steps[activeStepIdx].parentAttributes.push(['', '']);
+  renderEditor();
+}
+function removeParentAttr(ai) {
+  syncFromForm();
+  config.steps[activeStepIdx].parentAttributes.splice(ai, 1);
+  renderEditor();
+}
+function addWait() {
+  syncFromForm();
+  config.steps[activeStepIdx].wait.push({ waitType: '', Timeout: 0 });
+  renderEditor();
+}
+function removeWait(wi) {
+  syncFromForm();
+  config.steps[activeStepIdx].wait.splice(wi, 1);
+  if (config.steps[activeStepIdx].wait.length === 0)
+    config.steps[activeStepIdx].wait = [{ waitType: '', Timeout: 0 }];
+  renderEditor();
+}
+function addVerifyBlock() {
+  syncFromForm();
+  config.steps[activeStepIdx].verifyDOM.push({ textContent: ['', 'equalTo'], tagName: ['', 'equalTo'], attributes: {} });
+  renderEditor();
+}
+function removeVerifyBlock(vi) {
+  syncFromForm();
+  config.steps[activeStepIdx].verifyDOM.splice(vi, 1);
+  renderEditor();
+}
+function addVerifyAttr(vi) {
+  syncFromForm();
+  const vd = config.steps[activeStepIdx].verifyDOM[vi];
+  if (!vd.attributes) vd.attributes = {};
+  vd.attributes[''] = ['', 'equalTo'];
+  renderEditor();
+}
+function removeVerifyAttr(vi, key) {
+  syncFromForm();
+  delete config.steps[activeStepIdx].verifyDOM[vi].attributes[key];
+  renderEditor();
+}
+
+function onActionTypeChange(newType) {
+  syncFromForm();
+  config.steps[activeStepIdx].actionType = newType;
+  // Initialize sub-structures if needed
+  if (newType === 'Verify' && (!config.steps[activeStepIdx].verifyDOM || config.steps[activeStepIdx].verifyDOM.length === 0)) {
+    config.steps[activeStepIdx].verifyDOM = [];
+  }
+  if (newType === 'Calculate') {
+    if (!config.steps[activeStepIdx].calculate || !config.steps[activeStepIdx].calculate.operator) {
+      config.steps[activeStepIdx].calculate = { variable1: '', operator: '==', variable2: '', expectedResult: '', resultOperator: 'equalTo' };
+    }
+  }
+  renderEditor();
+  renderStepList();
+}
+
+// ─── Auto-fill helpers ───
+function autofillAttrsFromDOM() {
+  syncFromForm();
+  const s = config.steps[activeStepIdx];
+  const dom = s.elementDOM;
+  if (!dom) return toast('No elementDOM to parse');
+
+  // Parse attributes from the DOM string
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(dom, 'text/html');
+  const el = doc.body.firstElementChild;
+  if (!el) return toast('Could not parse elementDOM');
+
+  s.elementAttributes = [];
+  for (const attr of el.attributes) {
+    s.elementAttributes.push([attr.name, attr.value]);
+  }
+  s.elementTagName = el.tagName.toLowerCase();
+  s.elementTextContent = el.textContent.trim();
+  renderEditor();
+  toast('Attributes auto-filled from DOM');
+}
+
+function autofillVerifyFromElement() {
+  syncFromForm();
+  const s = config.steps[activeStepIdx];
+  const entry = { attributes: {} };
+
+  if (s.elementTextContent) entry.textContent = [s.elementTextContent, 'contains'];
+  if (s.elementTagName) entry.tagName = [s.elementTagName, 'equalTo'];
+  (s.elementAttributes || []).forEach(([name, val]) => {
+    entry.attributes[name] = [val, 'equalTo'];
+  });
+
+  s.verifyDOM = [entry];
+  renderEditor();
+  toast('VerifyDOM auto-filled from element data');
+}
+
+// ─── Utilities ───
+function esc(s) {
+  if (s === null || s === undefined) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// Auto-sync before page unload
+window.addEventListener('beforeunload', function() { syncFromForm(); });
+</script>
+</body>
+</html>

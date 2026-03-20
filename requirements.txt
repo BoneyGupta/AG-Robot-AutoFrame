@@ -1,0 +1,4 @@
+robotframework>=7.0
+robotframework-seleniumlibrary>=6.0
+selenium>=4.0
+lxml>=5.0
