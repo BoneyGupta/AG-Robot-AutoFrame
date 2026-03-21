@@ -11,13 +11,21 @@ class ReportGenerator:
 
     ROBOT_LIBRARY_SCOPE = 'SUITE'
 
-    def generate_report(self, report_dir, config_path, results_list, executed, failed):
+    def generate_report(self, report_dir, config_path, results_list, executed, failed, resolved_steps=None):
         with open(config_path, 'r', encoding='utf-8') as f:
             config = json.load(f)
 
         step_lookup = {}
-        for step in config.get('steps', []):
-            step_lookup[str(step['stepNumber'])] = step
+        if resolved_steps:
+            # Page object mode: use pre-resolved steps with global numbering
+            for step in resolved_steps:
+                # Convert RobotFramework objects to plain dicts if needed
+                step_dict = dict(step) if hasattr(step, 'items') else step
+                step_lookup[str(step_dict['stepNumber'])] = step_dict
+        else:
+            # Legacy mode: steps inline in config
+            for step in config.get('steps', []):
+                step_lookup[str(step['stepNumber'])] = step
 
         timestamp = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         passed = int(executed) - int(failed)

@@ -35,7 +35,9 @@ class ScreenshotHelper:
     def _screenshot_path(self, step_number, phase):
         if not self._screenshot_dir:
             raise RuntimeError("Screenshot directory not set. Call Set Screenshot Directory first.")
-        filename = f"step_{step_number}_{phase}.png"
+        # Replace ':' with '_' for filesystem safety (e.g., "1:3" -> "1_3")
+        safe_step = str(step_number).replace(':', '_')
+        filename = f"step_{safe_step}_{phase}.png"
         return os.path.join(self._screenshot_dir, filename)
 
     def capture_before_screenshot(self, step_number):

@@ -34,19 +34,27 @@ End To End Test All Steps
     ${browser}    ${window}=    Open Browser From Config    ${CONFIG_PATH}
     ${json_data}=    Parse JSON Config    ${CONFIG_PATH}
 
-    # Count total steps
-    ${steps}=    Set Variable    ${json_data}[steps]
+    # Resolve page objects into flat step list
+    ${steps}=    Resolve Page Objects    ${json_data}
     ${step_count}=    Get Length    ${steps}
     ${end_step}=    Evaluate    ${step_count} + 1
 
+    # Build resolved data dict for the iterator
+    ${resolved_data}=    Create Dictionary
+    ...    steps=${steps}
+    ...    browser=${json_data}[browser]
+    ...    headed=${json_data}[headed]
+    ...    implicitWait=${json_data}[implicitWait]
+    ...    startURL=${json_data}[startURL]
+
     # Run all steps (continue on failure to capture all results)
     ${browser_ctx}    ${executed}    ${failed}    ${results}=    Iterate Steps
-    ...    ${browser}    ${json_data}    1    ${end_step}    continue_on_failure=${True}
+    ...    ${browser}    ${resolved_data}    1    ${end_step}    continue_on_failure=${True}
 
     Log    Executed: ${executed}, Failed: ${failed}
 
     # Generate custom HTML report
-    ${report_path}=    Generate Report    ${report_dir}    ${CONFIG_PATH}    ${results}    ${executed}    ${failed}
+    ${report_path}=    Generate Report    ${report_dir}    ${CONFIG_PATH}    ${results}    ${executed}    ${failed}    ${steps}
 
     Log    Custom report: ${report_path}
 
