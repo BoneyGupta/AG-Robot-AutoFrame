@@ -8,6 +8,7 @@ A JSON-driven, no-code test automation framework built on Robot Framework and Se
 
 - [Prerequisites](#prerequisites)
 - [Setup](#setup)
+- [Launcher Dashboard](#launcher-dashboard)
 - [Quick Start](#quick-start)
 - [Project Structure](#project-structure)
 - [Running Tests](#running-tests)
@@ -55,7 +56,49 @@ After setup completes, you are ready to run tests.
 
 ---
 
+## Launcher Dashboard
+
+The Launcher Dashboard is a browser-based control panel for the framework. Run `launcher.bat` to start it.
+
+```
+launcher.bat
+```
+
+This starts a local server at `http://localhost:8090` and opens the dashboard in your browser.
+
+### Dashboard Features
+
+- **Run Tests** -- Start test execution and watch live terminal output directly in the browser. Click the button again to stop a running test.
+- **Test Editor** -- Opens the visual test configuration editor in a new tab.
+- **Reports** -- Browse all past test reports. Click any report to open it.
+- **Recorded Data** -- Quick access to test configs and page objects.
+- **Project Folder** -- Opens the project root in your file explorer.
+- **Test Configurations** -- Lists `output.json` and any page object JSON files. Click to open in the editor.
+
+### API Endpoints (for advanced use)
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/api/run-tests` | POST | Start test execution |
+| `/api/stop-tests` | POST | Stop a running test |
+| `/api/status` | GET | Get test status and output lines |
+| `/api/reports` | GET | List all report folders |
+| `/api/configs` | GET | List test configuration files |
+| `/api/open-report` | POST | Open a report in the default browser |
+| `/api/open-folder` | POST | Open a folder in the file explorer |
+
+---
+
 ## Quick Start
+
+```
+1. Run setup.bat              -- Installs Python + dependencies
+2. Run launcher.bat           -- Opens the dashboard in your browser
+3. Click "Run Tests"          -- Execute tests and see live output
+4. Click a report             -- View results with step-by-step screenshots
+```
+
+Or without the dashboard:
 
 ```
 1. Run setup.bat              -- Installs Python + dependencies
@@ -69,7 +112,11 @@ After setup completes, you are ready to run tests.
 ## Project Structure
 
 ```
-AG Robot AutoFrame Project 3/
+AG Robot AutoFrame Project/
+|
+|-- launcher.bat                     # Starts the dashboard server
+|-- launcher.py                      # Dashboard backend (Python HTTP server)
+|-- launcher.html                    # Dashboard frontend UI
 |
 |-- TestEditor/
 |   +-- editor.html                 # Visual test configuration editor
@@ -232,7 +279,7 @@ Click the **x** icon on any step card. A confirmation dialog appears showing whi
 
 ### Saving and Downloading
 
-- **Save** -- Saves changes to the currently loaded file. A confirmation dialog shows a summary of what changed.
+- **Save** -- Saves changes to the currently loaded file. A confirmation dialog shows a summary of what changed. The change list is scrollable, so even with a large number of modifications the dialog remains fully usable.
 - **Download** -- Downloads the config as a new JSON file. Use this to create a copy or export for the first time.
 
 ### Supported Step Fields
