@@ -90,15 +90,7 @@ This starts a local server at `http://localhost:8090` and opens the dashboard in
 ---
 
 ## Quick Start
-
-```
-1. Run setup.bat              -- Installs Python + dependencies
-2. Run launcher.bat           -- Opens the dashboard in your browser
-3. Click "Run Tests"          -- Execute tests and see live output
-4. Click a report             -- View results with step-by-step screenshots
-```
-
-Or without the dashboard:
+Without the dashboard:
 
 ```
 1. Run setup.bat              -- Installs Python + dependencies
