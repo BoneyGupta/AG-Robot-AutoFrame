@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AG Robot AutoFrame</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f7f8fa;--surface:#fff;--surface2:#f0f2f5;
+  --accent:#4f46e5;--accent2:#6366f1;--accent-light:#eef2ff;
+  --green:#16a34a;--green-bg:#f0fdf4;--red:#dc2626;--red-bg:#fef2f2;--yellow:#ca8a04;
+  --text:#1e293b;--text2:#64748b;--text3:#94a3b8;
+  --border:#e2e8f0;--radius:10px;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* ── Header ── */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;align-items:center;gap:16px}
+.header h1{font-size:18px;font-weight:800;letter-spacing:-.3px}
+.header h1 span{color:var(--accent)}
+.header p{color:var(--text3);font-size:12px;margin-left:8px;padding-left:16px;border-left:1px solid var(--border)}
+
+/* ── Main ── */
+.main{padding:24px 32px}
+
+/* ── Run Bar ── */
+.run-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.run-btn{
+  background:var(--accent);color:#fff;border:none;border-radius:8px;
+  padding:10px 28px;font-size:13px;font-weight:700;cursor:pointer;
+  transition:background .15s;display:flex;align-items:center;gap:6px;
+}
+.run-btn:hover{background:#4338ca}
+.run-btn.running{background:var(--yellow);color:#fff}
+.run-btn.running:hover{background:#a16207}
+.run-status{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:6px}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.dot.idle{background:var(--text3)}.dot.active{background:var(--green);animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.run-bar .spacer{flex:1}
+.run-bar .quick-link{font-size:12px;color:var(--accent);font-weight:600;cursor:pointer;padding:6px 14px;border:1px solid var(--border);border-radius:6px;background:var(--surface);transition:all .12s;text-decoration:none}
+.run-bar .quick-link:hover{background:var(--accent-light);border-color:var(--accent)}
+
+/* ── Terminal ── */
+.terminal{background:#1e1e2e;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;display:none;overflow:hidden}
+.terminal.visible{display:block}
+.terminal-bar{padding:8px 14px;background:#16161e;display:flex;align-items:center}
+.terminal-bar span{font-size:11px;color:#6b7280;flex:1}
+.terminal-bar button{background:none;border:none;color:#6b7280;cursor:pointer;font-size:14px;padding:0 4px}
+.terminal-bar button:hover{color:#e5e7eb}
+.terminal-body{padding:14px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;line-height:1.7;color:#a6e3a1;max-height:300px;overflow-y:auto;white-space:pre-wrap}
+.terminal-body::-webkit-scrollbar{width:4px}
+.terminal-body::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
+.terminal-body .err{color:#f38ba8}.terminal-body .pass{color:#a6e3a1;font-weight:700}
+
+/* ── Grid ── */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+.tile{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:14px;
+}
+.tile:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(79,70,229,.08)}
+.tile-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.tile-icon.editor{background:#eef2ff;color:var(--accent)}
+.tile-icon.reports{background:#f0fdf4;color:var(--green)}
+.tile-icon.data{background:#fefce8;color:var(--yellow)}
+.tile-icon.folder{background:#f0f2f5;color:var(--text2)}
+.tile-info .tile-label{font-size:13px;font-weight:700}
+.tile-info .tile-sub{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* ── Two Column ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.two-col{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.panel-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center}
+.panel-head h3{font-size:12px;font-weight:700;color:var(--text2);flex:1}
+.panel-head button{background:none;border:none;color:var(--text3);font-size:11px;cursor:pointer;font-weight:600}
+.panel-head button:hover{color:var(--accent)}
+.panel-body{max-height:300px;overflow-y:auto}
+.panel-body::-webkit-scrollbar{width:4px}
+.panel-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.row{display:flex;align-items:center;gap:10px;padding:10px 16px;cursor:pointer;border-bottom:1px solid var(--surface2);transition:background .1s}
+.row:last-child{border-bottom:none}
+.row:hover{background:var(--surface2)}
+.row .dot{flex-shrink:0}
+.row .dot.pass{background:var(--green)}.row .dot.fail{background:var(--red)}.row .dot.unknown{background:var(--text3)}
+.row-text{flex:1;font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font-size:9px;padding:2px 8px;border-radius:4px;font-weight:700;flex-shrink:0}
+.tag.main{background:var(--accent-light);color:var(--accent)}
+.tag.pageobject{background:var(--green-bg);color:var(--green)}
+.row .arrow{color:var(--text3);font-size:11px;opacity:0;transition:opacity .1s}
+.row:hover .arrow{opacity:1}
+.empty{color:var(--text3);font-size:12px;padding:24px 16px;text-align:center}
+
+/* ── Toast ── */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--text);color:#fff;padding:10px 24px;border-radius:8px;font-size:12px;font-weight:600;transition:transform .25s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>AG Robot <span>AutoFrame</span></h1>
+  <p>No-Code UI Test Automation Framework</p>
+</div>
+
+<div class="main">
+  <!-- Run Bar -->
+  <div class="run-bar">
+    <button class="run-btn" id="run-btn" onclick="runTests()">
+      <span id="run-icon">&#9654;</span> <span id="run-label">Run Tests</span>
+    </button>
+    <span class="run-status" id="run-status"><span class="dot idle"></span> Ready</span>
+    <span class="spacer"></span>
+  </div>
+
+  <!-- Terminal -->
+  <div class="terminal" id="terminal">
+    <div class="terminal-bar"><span>Output</span><button onclick="closeTerminal()">&times;</button></div>
+    <div class="terminal-body" id="terminal-body"></div>
+  </div>
+
+  <!-- Tools Grid -->
+  <div class="grid">
+    <div class="tile" onclick="openEditor()">
+      <div class="tile-icon editor">&#9998;</div>
+      <div class="tile-info"><div class="tile-label">Test Editor</div><div class="tile-sub">Edit test configurations</div></div>
+    </div>
+    <div class="tile" onclick="openFolder('Reports')">
+      <div class="tile-icon reports">&#128202;</div>
+      <div class="tile-info"><div class="tile-label">Reports</div><div class="tile-sub">Browse test reports</div></div>
+    </div>
+    <div class="tile" onclick="openFolder('Recorded Data')">
+      <div class="tile-icon data">&#128193;</div>
+      <div class="tile-info"><div class="tile-label">Recorded Data</div><div class="tile-sub">Configs & page objects</div></div>
+    </div>
+    <div class="tile" onclick="openFolder('.')">
+      <div class="tile-icon folder">&#9881;</div>
+      <div class="tile-info"><div class="tile-label">Project Folder</div><div class="tile-sub">Open root directory</div></div>
+    </div>
+  </div>
+
+  <!-- Reports + Configs -->
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-head"><h3>Recent Reports</h3><button onclick="loadReports()">Refresh</button></div>
+      <div class="panel-body" id="reports-list"><div class="empty">Loading...</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h3>Test Configurations</h3><button onclick="loadConfigs()">Refresh</button></div>
+      <div class="panel-body" id="configs-list"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var testRunning = false, pollTimer = null;
+
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2500);
+}
+function api(url, body) {
+  var opts = body !== undefined ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {};
+  return fetch(url, opts).then(function(r) { return r.json(); });
+}
+
+function runTests() {
+  if (testRunning) { api('/api/stop-tests'); toast('Stopping...'); return; }
+  api('/api/run-tests', {}).then(function(d) {
+    if (d.error) { toast(d.error); return; }
+    testRunning = true; updateRunUI(); showTerminal(); startPolling();
+  }).catch(function() { toast('Failed to start tests'); });
+}
+function updateRunUI() {
+  var btn = document.getElementById('run-btn');
+  var icon = document.getElementById('run-icon');
+  var label = document.getElementById('run-label');
+  var status = document.getElementById('run-status');
+  if (testRunning) {
+    btn.className = 'run-btn running'; icon.innerHTML = '&#9724;'; label.textContent = 'Stop';
+    status.innerHTML = '<span class="dot active"></span> Running...';
+  } else {
+    btn.className = 'run-btn'; icon.innerHTML = '&#9654;'; label.textContent = 'Run Tests';
+    status.innerHTML = '<span class="dot idle"></span> Ready';
+  }
+}
+function startPolling() {
+  if (pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(function() {
+    api('/api/status').then(function(d) {
+      renderTerminal(d.output_lines);
+      if (!d.test_running && testRunning) {
+        testRunning = false; updateRunUI(); clearInterval(pollTimer);
+        pollTimer = null; loadReports(); toast('Tests completed');
+      }
+    });
+  }, 800);
+}
+function showTerminal() { document.getElementById('terminal').classList.add('visible'); }
+function closeTerminal() { document.getElementById('terminal').classList.remove('visible'); }
+function renderTerminal(lines) {
+  var el = document.getElementById('terminal-body'), html = '';
+  (lines || []).forEach(function(l) {
+    if (l.indexOf('FAIL') !== -1 || l.indexOf('ERROR') !== -1) html += '<span class="err">' + esc(l) + '</span>\n';
+    else if (l.indexOf('PASS') !== -1) html += '<span class="pass">' + esc(l) + '</span>\n';
+    else html += esc(l) + '\n';
+  });
+  el.innerHTML = html; el.scrollTop = el.scrollHeight;
+}
+
+function loadReports() {
+  api('/api/reports').then(function(list) {
+    var el = document.getElementById('reports-list');
+    if (!list || list.length === 0) { el.innerHTML = '<div class="empty">No reports yet</div>'; return; }
+    el.innerHTML = list.map(function(r) {
+      return '<div class="row" onclick="openReport(\'' + esc(r.folder) + '\')">'
+        + '<span class="dot ' + r.status.toLowerCase() + '"></span>'
+        + '<span class="row-text">' + esc(r.folder) + '</span>'
+        + '<span class="arrow">&rarr;</span></div>';
+    }).join('');
+  });
+}
+function openReport(f) { api('/api/open-report', { folder: f }).then(function(d) { if (d.error) toast(d.error); }); }
+
+function loadConfigs() {
+  api('/api/configs').then(function(list) {
+    var el = document.getElementById('configs-list');
+    if (!list || list.length === 0) { el.innerHTML = '<div class="empty">No configs found</div>'; return; }
+    el.innerHTML = list.map(function(c) {
+      return '<div class="row" onclick="openConfigInEditor(\'' + esc(c.path) + '\')">'
+        + '<span class="row-text">' + esc(c.name) + '</span>'
+        + '<span class="tag ' + c.type + '">' + (c.type === 'main' ? 'Main' : 'Page Object') + '</span>'
+        + '<span class="arrow">&rarr;</span></div>';
+    }).join('');
+  });
+}
+
+function openEditor() { window.open('/TestEditor/editor.html', '_blank'); }
+function openConfigInEditor(p) { window.open('/TestEditor/editor.html?autoload=/' + p, '_blank'); }
+function openFolder(p) { api('/api/open-folder', { path: p }); }
+
+function esc(s) { return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;') : ''; }
+
+loadReports(); loadConfigs();
+api('/api/status').then(function(d) {
+  if (d.test_running) { testRunning = true; updateRunUI(); showTerminal(); startPolling(); }
+});
+</script>
+</body>
+</html>
