@@ -58,6 +58,17 @@ a{color:var(--accent)}
 .stype-input{background:rgba(155,89,182,.2);color:#9b59b6}
 .stype-verify{background:rgba(39,174,96,.2);color:#27ae60}
 .stype-calculate{background:rgba(243,156,18,.2);color:#f39c12}
+.stype-pageobject{background:rgba(67,97,238,.15);color:#4361ee}
+.po-toggle{font-size:11px;color:var(--accent);font-weight:600;padding:3px 8px;border:1px solid var(--accent);border-radius:6px;transition:all .15s;cursor:pointer;white-space:nowrap}
+.po-toggle:hover{background:var(--accent);color:#fff}
+.po-substeps{margin-left:20px;border-left:2px solid rgba(67,97,238,.25);padding-left:6px;margin-bottom:6px}
+.po-substep-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:7px 10px;margin-bottom:3px;cursor:pointer;transition:all .12s;display:flex;align-items:center;gap:8px;font-size:12px}
+.po-substep-card:hover{border-color:var(--accent);background:#f0f4ff}
+.po-substep-card.active{border-color:var(--accent);background:rgba(67,97,238,.08)}
+.po-substep-card .snum{font-weight:700;font-size:11px;color:var(--accent);min-width:28px;text-align:center}
+.po-substep-card .sinfo{flex:1;min-width:0}
+.po-substep-card .ssection{font-size:10px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.po-loading{font-size:11px;color:var(--text2);padding:6px 10px;margin-left:20px;font-style:italic}
 .step-card .sdrag{color:var(--text2);font-size:13px;cursor:grab;opacity:.4;flex-shrink:0;user-select:none}
 .step-card .sdrag:hover{opacity:1;color:var(--text)}
 .step-card[draggable="true"]{cursor:default}
@@ -199,8 +210,11 @@ let config = null;
 let activeStepIdx = -1;
 let fileHandle = null;
 let fileName = '';
+let poCache = {};          // { ref: { pageObject, steps } }
+let expandedPOs = {};      // { parentIdx: true/false }
+let activePoStep = null;   // { parentIdx, subIdx } when a sub-step is selected
 
-const ACTION_TYPES = ['Click', 'Type / Input', 'Verify', 'Calculate'];
+const ACTION_TYPES = ['Click', 'Type / Input', 'Verify', 'Calculate', 'PageObject'];
 const BROWSERS = ['chrome', 'edge', 'safari'];
 const WAIT_TYPES = ['', 'elementVisible', 'elementClickable', 'elementPresent', 'elementNotVisible', 'textPresent', 'pageLoad', 'custom'];
 const VERIFY_OPERATORS = ['equalTo', 'contains', 'varContains', 'eleContains'];
@@ -260,6 +274,9 @@ function defaultStep(num) {
 function newConfig() {
   config = defaultConfig();
   activeStepIdx = -1;
+  activePoStep = null;
+  poCache = {};
+  expandedPOs = {};
   fileName = 'output.json';
   document.getElementById('file-label').textContent = 'New config (unsaved)';
   render();
@@ -274,9 +291,18 @@ function loadFile(e) {
     try {
       config = JSON.parse(ev.target.result);
       activeStepIdx = -1;
+      activePoStep = null;
+      poCache = {};
+      expandedPOs = {};
       lastSavedSnapshot = takeSnapshot();
       document.getElementById('file-label').textContent = fileName;
       render();
+      // On http://, auto-load POs via fetch; on file://, prompt for folder
+      if (window.location.protocol.startsWith('http')) {
+        loadPageObjects();
+      } else {
+        autoLoadPageObjectFolder();
+      }
       toast('Loaded ' + fileName);
     } catch(err) {
       toast('Invalid JSON: ' + err.message);
@@ -391,11 +417,11 @@ function getChangeSummary() {
   return changes;
 }
 
-function toast(msg) {
+function toast(msg, duration) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  setTimeout(() => t.classList.remove('show'), duration || 2500);
 }
 
 // ─── Modal ───
@@ -438,32 +464,89 @@ function renderStepList() {
 
   config.steps.forEach((s, i) => {
     const section = s.sectionName || 'Untitled';
+    const isPageObject = s.actionType === 'PageObject';
 
-    // Render section header when section changes
-    if (section !== currentSection) {
+    // Render section header when section changes (skip for PageObject — they are their own headers)
+    if (section !== currentSection && !isPageObject) {
       currentSection = section;
       html += `<div class="section-header" data-section="${esc(section)}">
         <span class="section-label">${esc(section)}</span>
-        <span class="section-count">${config.steps.filter(st => (st.sectionName || 'Untitled') === section).length}</span>
+        <span class="section-count">${config.steps.filter(st => st.actionType !== 'PageObject' && (st.sectionName || 'Untitled') === section).length}</span>
       </div>`;
     }
 
     const typeClass = s.actionType === 'Click' ? 'stype-click' :
       s.actionType === 'Type / Input' ? 'stype-input' :
-      s.actionType === 'Verify' ? 'stype-verify' : 'stype-calculate';
-    html += `<div class="step-card ${i === activeStepIdx ? 'active' : ''}" draggable="true" data-idx="${i}"
-        ondragstart="onDragStart(event,${i})" ondragover="onDragOver(event)" ondragenter="onDragEnter(event)"
-        ondragleave="onDragLeave(event)" ondrop="onDrop(event,${i})" ondragend="onDragEnd(event)"
-        onclick="selectStep(${i})">
-      <span class="sdrag" title="Drag to reorder">&#9776;</span>
-      <span class="snum">${s.stepNumber}</span>
-      <div class="sinfo">
-        <div class="ssection">${esc(s.description || s.xpath || s.actionType)}</div>
-      </div>
-      <span class="stype-badge ${typeClass}">${esc(s.actionType)}</span>
-      <span class="sdelete" onclick="event.stopPropagation();deleteStep(${i})" title="Delete step">&#10005;</span>
-    </div>`;
+      s.actionType === 'Verify' ? 'stype-verify' :
+      s.actionType === 'PageObject' ? 'stype-pageobject' : 'stype-calculate';
+
+    if (isPageObject) {
+      currentSection = section;
+      const isExpanded = !!expandedPOs[i];
+      const po = s.ref ? poCache[s.ref] : null;
+      const subCount = po ? po.steps.length : '...';
+      const toggleLabel = isExpanded ? '&#9660;' : '&#9654;';
+
+      html += `<div class="step-card ${i === activeStepIdx && !activePoStep ? 'active' : ''}" draggable="true" data-idx="${i}"
+          ondragstart="onDragStart(event,${i})" ondragover="onDragOver(event)" ondragenter="onDragEnter(event)"
+          ondragleave="onDragLeave(event)" ondrop="onDrop(event,${i})" ondragend="onDragEnd(event)"
+          onclick="selectStep(${i})">
+        <span class="sdrag" title="Drag to reorder">&#9776;</span>
+        <span class="snum">${s.stepNumber}</span>
+        <div class="sinfo">
+          <div class="ssection">${esc(s.sectionName || s.ref || 'PageObject')}</div>
+        </div>
+        <span class="po-toggle" onclick="event.stopPropagation();togglePO(${i})" title="${isExpanded ? 'Collapse' : 'Expand'} sub-steps">${toggleLabel} ${subCount}</span>
+        <span class="stype-badge ${typeClass}">PageObject</span>
+        <span class="sdelete" onclick="event.stopPropagation();deleteStep(${i})" title="Delete step">&#10005;</span>
+      </div>`;
+
+      // Render expanded sub-steps
+      if (isExpanded && po && po.steps) {
+        html += `<div class="po-substeps">`;
+        po.steps.forEach((sub, si) => {
+          const subTypeClass = sub.actionType === 'Click' ? 'stype-click' :
+            sub.actionType === 'Type / Input' ? 'stype-input' :
+            sub.actionType === 'Verify' ? 'stype-verify' : 'stype-calculate';
+          const isActiveSub = activePoStep && activePoStep.parentIdx === i && activePoStep.subIdx === si;
+          html += `<div class="po-substep-card ${isActiveSub ? 'active' : ''}" onclick="selectPoSubStep(${i},${si})">
+            <span class="snum">${s.stepNumber}:${si + 1}</span>
+            <div class="sinfo">
+              <div class="ssection">${esc(sub.description || sub.xpath || sub.actionType)}</div>
+            </div>
+            <span class="stype-badge ${subTypeClass}">${esc(sub.actionType)}</span>
+          </div>`;
+        });
+        html += `</div>`;
+      } else if (isExpanded && !po) {
+        html += `<div class="po-loading">Loading ${esc(s.ref || '...')}...</div>`;
+      }
+    } else {
+      // Regular step card
+      html += `<div class="step-card ${i === activeStepIdx && !activePoStep ? 'active' : ''}" draggable="true" data-idx="${i}"
+          ondragstart="onDragStart(event,${i})" ondragover="onDragOver(event)" ondragenter="onDragEnter(event)"
+          ondragleave="onDragLeave(event)" ondrop="onDrop(event,${i})" ondragend="onDragEnd(event)"
+          onclick="selectStep(${i})">
+        <span class="sdrag" title="Drag to reorder">&#9776;</span>
+        <span class="snum">${s.stepNumber}</span>
+        <div class="sinfo">
+          <div class="ssection">${esc(s.description || s.xpath || s.actionType)}</div>
+        </div>
+        <span class="stype-badge ${typeClass}">${esc(s.actionType)}</span>
+        <span class="sdelete" onclick="event.stopPropagation();deleteStep(${i})" title="Delete step">&#10005;</span>
+      </div>`;
+    }
   });
+
+  // Show "Load All Page Objects" button if there are unloaded POs
+  const unloadedPOs = config.steps.filter(s => s.actionType === 'PageObject' && s.ref && !poCache[s.ref]);
+  if (unloadedPOs.length > 0) {
+    html = `<div style="padding:6px 4px;margin-bottom:6px">
+      <button class="btn btn-sm btn-secondary" onclick="loadPageObjectFolder()" style="width:100%;font-size:11px">
+        &#128194; Load Page Objects Folder (${unloadedPOs.length} remaining)
+      </button>
+    </div>` + html;
+  }
 
   list.innerHTML = html;
 }
@@ -517,7 +600,29 @@ function onDragEnd(e) {
 function selectStep(idx) {
   syncFromForm();
   activeStepIdx = idx;
+  activePoStep = null;
   render();
+}
+
+function selectPoSubStep(parentIdx, subIdx) {
+  syncFromForm();
+  activeStepIdx = parentIdx;
+  activePoStep = { parentIdx: parentIdx, subIdx: subIdx };
+  render();
+}
+
+function togglePO(parentIdx) {
+  expandedPOs[parentIdx] = !expandedPOs[parentIdx];
+  const s = config.steps[parentIdx];
+  if (expandedPOs[parentIdx] && s.ref && !poCache[s.ref]) {
+    // On http://, fetch it; on file://, prompt to use the folder loader
+    if (window.location.protocol.startsWith('http')) {
+      loadSinglePageObject(s.ref, false);
+    } else {
+      toast('Use "Load Page Objects Folder" button above to load all page objects', 3000);
+    }
+  }
+  renderStepList();
 }
 
 function addStep() {
@@ -527,6 +632,106 @@ function addStep() {
   activeStepIdx = config.steps.length - 1;
   render();
   toast('Step ' + num + ' added');
+}
+
+// ─── Page Object Loading ───
+function loadPageObjects() {
+  // On http://, auto-load all page objects via fetch
+  if (!config || !config.steps || !window.location.protocol.startsWith('http')) return;
+  config.steps.forEach(function(s) {
+    if (s.actionType === 'PageObject' && s.ref && !poCache[s.ref]) {
+      loadSinglePageObject(s.ref);
+    }
+  });
+}
+
+function loadSinglePageObject(ref, showPickerOnFail) {
+  var poPath = '../Recorded Data/Page Objects/' + ref;
+
+  function storeAndRender(data) {
+    poCache[ref] = data;
+    renderStepList();
+  }
+
+  // Try fetch first (works on http://)
+  if (window.location.protocol.startsWith('http')) {
+    fetch(poPath)
+      .then(function(r) { if (!r.ok) throw new Error('not found'); return r.json(); })
+      .then(storeAndRender)
+      .catch(function() {
+        if (showPickerOnFail) loadPoFromFilePicker(ref);
+        else toast('Could not load ' + ref);
+      });
+    return;
+  }
+
+  // Fallback for file:// protocol: use XMLHttpRequest
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', poPath, true);
+    xhr.onload = function() {
+      if (xhr.status === 0 || xhr.status === 200) {
+        try { storeAndRender(JSON.parse(xhr.responseText)); }
+        catch(e) { if (showPickerOnFail) loadPoFromFilePicker(ref); }
+      } else { if (showPickerOnFail) loadPoFromFilePicker(ref); }
+    };
+    xhr.onerror = function() { if (showPickerOnFail) loadPoFromFilePicker(ref); };
+    xhr.send();
+  } catch(e) {
+    if (showPickerOnFail) loadPoFromFilePicker(ref);
+  }
+}
+
+function autoLoadPageObjectFolder() {
+  if (!config || !config.steps) return;
+  var refs = config.steps.filter(function(s) {
+    return s.actionType === 'PageObject' && s.ref && !poCache[s.ref];
+  }).map(function(s) { return s.ref; });
+  if (refs.length === 0) return;
+
+  // Auto-prompt to select the Page Objects folder
+  setTimeout(function() {
+    toast('Select the "Page Objects" folder to load all page objects', 4000);
+    loadPageObjectFolder();
+  }, 500);
+}
+
+function loadPageObjectFolder() {
+  if (!config || !config.steps) return;
+  var refs = config.steps.filter(function(s) {
+    return s.actionType === 'PageObject' && s.ref && !poCache[s.ref];
+  }).map(function(s) { return s.ref; });
+  if (refs.length === 0) { toast('All page objects already loaded'); return; }
+
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.setAttribute('webkitdirectory', '');
+  input.setAttribute('directory', '');
+  input.onchange = function(e) {
+    var files = Array.from(e.target.files).filter(function(f) { return f.name.endsWith('.json'); });
+    var loaded = 0, total = files.length, processed = 0;
+    if (total === 0) { toast('No JSON files found in selected folder'); return; }
+    files.forEach(function(file) {
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        processed++;
+        try {
+          var data = JSON.parse(ev.target.result);
+          if (refs.indexOf(file.name) !== -1) {
+            poCache[file.name] = data;
+            loaded++;
+          }
+        } catch(err) { /* skip invalid */ }
+        if (processed === total) {
+          renderStepList();
+          if (loaded > 0) toast('Loaded ' + loaded + ' page object(s)');
+          else toast('No matching page object files found');
+        }
+      };
+      reader.readAsText(file);
+    });
+  };
+  input.click();
 }
 
 function deleteStep(idx) {
@@ -587,8 +792,19 @@ function renderEditor() {
 
   let html = renderConfigPanel();
 
-  if (activeStepIdx >= 0 && activeStepIdx < config.steps.length) {
-    html += renderStepEditor(config.steps[activeStepIdx], activeStepIdx);
+  if (activePoStep) {
+    // Render a sub-step from a page object
+    const parentStep = config.steps[activePoStep.parentIdx];
+    const po = parentStep && parentStep.ref ? poCache[parentStep.ref] : null;
+    if (po && po.steps && po.steps[activePoStep.subIdx]) {
+      const sub = po.steps[activePoStep.subIdx];
+      html += `<div class="config-panel" style="background:rgba(67,97,238,.04);border-left:3px solid var(--accent);margin-bottom:16px;padding:12px 16px">
+        <span style="font-size:12px;color:var(--text2)">Page Object: <strong>${esc(parentStep.ref)}</strong> &mdash; Step ${parentStep.stepNumber}:${activePoStep.subIdx + 1}</span>
+      </div>`;
+      html += renderStepEditor(sub, activePoStep.subIdx, true);
+    }
+  } else if (activeStepIdx >= 0 && activeStepIdx < config.steps.length) {
+    html += renderStepEditor(config.steps[activeStepIdx], activeStepIdx, false);
   } else {
     html += `<div class="empty-state" style="height:300px">
       <div class="icon">&#128073;</div>
@@ -629,11 +845,67 @@ function renderConfigPanel() {
   </div>`;
 }
 
-function renderStepEditor(step, idx) {
+function renderStepEditor(step, idx, isSubStep) {
   const s = step;
   const typeClass = s.actionType === 'Click' ? 'stype-click' :
     s.actionType === 'Type / Input' ? 'stype-input' :
-    s.actionType === 'Verify' ? 'stype-verify' : 'stype-calculate';
+    s.actionType === 'Verify' ? 'stype-verify' :
+    s.actionType === 'PageObject' ? 'stype-pageobject' : 'stype-calculate';
+
+  // PageObject steps get a simplified editor
+  if (s.actionType === 'PageObject') {
+    const po = s.ref ? poCache[s.ref] : null;
+    const subCount = po ? po.steps.length + ' sub-steps' : 'not loaded';
+    let html = `<div class="step-panel">
+      <h3>
+        Step ${s.stepNumber}
+        <span class="badge ${typeClass}">PageObject</span>
+        <span style="margin-left:auto;display:flex;gap:4px">
+          <button class="btn-icon" onclick="moveStep(${idx},-1)" title="Move up">&#9650;</button>
+          <button class="btn-icon" onclick="moveStep(${idx},1)" title="Move down">&#9660;</button>
+          <button class="btn-icon" onclick="duplicateStep(${idx})" title="Duplicate">&#10697;</button>
+        </span>
+      </h3>
+
+      <div class="config-grid">
+        <div class="field">
+          <label>Action Type</label>
+          <select id="s-actionType" onchange="onActionTypeChange(this.value)">
+            ${ACTION_TYPES.map(a => `<option value="${a}" ${s.actionType === a ? 'selected' : ''}>${a}</option>`).join('')}
+          </select>
+        </div>
+        <div class="field">
+          <label>Page Object File</label>
+          <input type="text" id="s-ref" value="${esc(s.ref || '')}" placeholder="e.g. login_page.json">
+        </div>
+        <div class="field">
+          <label>Section Name</label>
+          <input type="text" id="s-sectionName" value="${esc(s.sectionName)}">
+        </div>
+        <div class="field">
+          <label>Skip</label>
+          <select id="s-skip">
+            <option value="No" ${s.skip === 'No' ? 'selected' : ''}>No</option>
+            <option value="Yes" ${s.skip === 'Yes' ? 'selected' : ''}>Yes</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Stop on Failure</label>
+          <select id="s-stopOnFailure">
+            <option value="Yes" ${s.stopOnFailure === 'Yes' ? 'selected' : ''}>Yes</option>
+            <option value="No" ${s.stopOnFailure === 'No' ? 'selected' : ''}>No</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:13px;color:var(--text2)">This step references an external page object file (${subCount}).</span>
+        <span class="po-toggle" onclick="togglePO(${idx});renderStepList()" style="font-size:12px">${expandedPOs[idx] ? 'Collapse' : 'Expand'} Sub-steps</span>
+      </div>
+    </div>`;
+    return html;
+  }
 
   let html = `<div class="step-panel">
     <h3>
@@ -941,8 +1213,17 @@ function syncFromForm() {
   const w = cfgVal('cfg-wait'); if (w !== null) config.implicitWait = parseInt(w) || 0;
   const u = cfgVal('cfg-url'); if (u !== null) config.startURL = u;
 
-  if (activeStepIdx < 0 || activeStepIdx >= config.steps.length) return;
-  const s = config.steps[activeStepIdx];
+  // Determine which step object to sync into
+  let s;
+  if (activePoStep) {
+    const parentStep = config.steps[activePoStep.parentIdx];
+    const po = parentStep && parentStep.ref ? poCache[parentStep.ref] : null;
+    if (!po || !po.steps || !po.steps[activePoStep.subIdx]) return;
+    s = po.steps[activePoStep.subIdx];
+  } else {
+    if (activeStepIdx < 0 || activeStepIdx >= config.steps.length) return;
+    s = config.steps[activeStepIdx];
+  }
 
   const val = id => { const el = document.getElementById(id); return el ? el.value : ''; };
 
@@ -950,6 +1231,14 @@ function syncFromForm() {
   s.actionType = val('s-actionType');
   s.skip = val('s-skip');
   s.stopOnFailure = val('s-stopOnFailure');
+
+  // PageObject steps only need ref — skip the rest
+  if (s.actionType === 'PageObject') {
+    const refEl = document.getElementById('s-ref');
+    if (refEl) s.ref = refEl.value;
+    return;
+  }
+
   s.xpath = val('s-xpath');
   s.elementDOM = val('s-elementDOM');
   s.elementTagName = val('s-elementTagName');
@@ -1112,6 +1401,11 @@ function onActionTypeChange(newType) {
       config.steps[activeStepIdx].calculate = { variable1: '', operator: '==', variable2: '', expectedResult: '', resultOperator: 'equalTo' };
     }
   }
+  if (newType === 'PageObject') {
+    if (!config.steps[activeStepIdx].ref) {
+      config.steps[activeStepIdx].ref = '';
+    }
+  }
   renderEditor();
   renderStepList();
 }
@@ -1163,6 +1457,29 @@ function esc(s) {
 
 // Auto-sync before page unload
 window.addEventListener('beforeunload', function() { syncFromForm(); });
+
+// Auto-load config from query param (works on http:// only)
+window.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const autoload = params.get('autoload');
+  if (autoload) {
+    fetch(autoload)
+      .then(function(r) { if (!r.ok) throw new Error('File not found: ' + autoload); return r.json(); })
+      .then(function(data) {
+        config = data;
+        fileName = autoload.split('/').pop();
+        activePoStep = null;
+        poCache = {};
+        expandedPOs = {};
+        lastSavedSnapshot = takeSnapshot();
+        document.getElementById('file-label').textContent = fileName;
+        render();
+        loadPageObjects();
+        toast('Loaded ' + fileName);
+      })
+      .catch(function(e) { toast('Failed to load: ' + e.message); });
+  }
+});
 </script>
 </body>
 </html>
