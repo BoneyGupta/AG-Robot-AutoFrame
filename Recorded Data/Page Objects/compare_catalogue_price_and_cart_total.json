@@ -1,0 +1,62 @@
+{
+  "pageObject": "Compare Catalogue Price and Cart Total",
+  "steps": [
+    {
+      "stepId": "7354328314",
+      "stepNumber": 1,
+      "actionType": "Calculate",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Compare Catalogue Price and Cart Total",
+      "elementDOM": "",
+      "elementCSS": "",
+      "elementTextContent": "",
+      "elementTagName": "",
+      "elementAttributes": [],
+      "xpath": "",
+      "dynamic": "",
+      "elementPosition": "",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductNameInList}}",
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.CataloguePrice}}"
+      ],
+      "calculate": {
+        "variable1": "{{bb.local.CataloguePrice}}",
+        "operator": "==",
+        "variable2": "{{bb.local.ProductPriceInList}}",
+        "expectedResult": "true",
+        "resultOperator": "equalTo"
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "",
+      "title": "",
+      "windowSize": {
+        "width": 0,
+        "height": 0
+      },
+      "timestamp": ""
+    }
+  ]
+}

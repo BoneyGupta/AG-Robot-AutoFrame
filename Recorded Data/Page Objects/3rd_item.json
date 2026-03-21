@@ -1,0 +1,254 @@
+{
+  "pageObject": "3rd item",
+  "steps": [
+    {
+      "stepId": "6907989591",
+      "stepNumber": 1,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "3rd item",
+      "elementDOM": "<div class=\"product-info\">Tissot\n          Tissot PRX Powermatic 80\n          \n            $595\n            â˜… 4.9 (2,109)</div>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 101.167px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bâ€¦",
+      "elementTextContent": "Tissot Tissot PRX Powermatic 80 $595 â˜… 4.9 (2,109)",
+      "elementTagName": "div",
+      "elementAttributes": [
+        [
+          "class",
+          "product-info"
+        ]
+      ],
+      "xpath": "(//div[@id='productsGrid']//div[@class='product-info'])[3]",
+      "dynamic": "Yes",
+      "elementPosition": "x:644, y:401, w:280, h:101",
+      "parentElementDOM": "<div class=\"products-grid\" id=\"productsGrid\">Row 1\n        âŒš\n        \n          Seiko\n          Seiko Presage Cocktail\n          \n            $320\n            â˜… 4.8 (1,204)\n          \n        \n        ðŸ•\n        \n          Orient\n          Orient Bambino Open Heart\n          \n            $185\n            â˜… 4.6 (892)\n          \n        \n       </div>",
+      "parentElementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 488.667px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: 20px; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-botâ€¦",
+      "parentTextContent": "Row 1 âŒš Seiko Seiko Presage Cocktail $320 â˜… 4.8 (1,204) ðŸ• Orient Orient Bambino Open Heart $185 â˜… 4.6 (892)",
+      "parentTagName": "div",
+      "parentAttributes": [
+        [
+          "class",
+          "products-grid"
+        ],
+        [
+          "id",
+          "productsGrid"
+        ]
+      ],
+      "nthInPageOrParent": [
+        "3"
+      ],
+      "nthIdentifierDOM": [
+        {
+          "tagName": [
+            "div",
+            "equalTo"
+          ],
+          "attributes": [
+            {
+              "class": [
+                "product-info",
+                "equalTo"
+              ]
+            }
+          ]
+        }
+      ],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "ProductNameInList",
+      "saved": [
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:36:41.271Z"
+    },
+    {
+      "stepId": "8940562192",
+      "stepNumber": 2,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "3rd item",
+      "elementDOM": "<h1 class=\"product-detail-name\">Tissot PRX Powermatic 80</h1>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 103.5px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-botâ€¦",
+      "elementTextContent": "Tissot PRX Powermatic 80",
+      "elementTagName": "h1",
+      "elementAttributes": [
+        [
+          "class",
+          "product-detail-name"
+        ]
+      ],
+      "xpath": "//h1[@class='product-detail-name']",
+      "dynamic": "Yes",
+      "elementPosition": "x:612, y:117, w:328, h:104",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "{{bb.local.ProductNameInList}}",
+            "varContains"
+          ],
+          "tagName": [
+            "h1",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "product-detail-name",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:39:29.227Z"
+    },
+    {
+      "stepId": "2017990095",
+      "stepNumber": 3,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "3rd item",
+      "elementDOM": "<div class=\"product-detail-price\" id=\"detailPrice\" data-price=\"595\">$595 USD</div>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 46px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(232, 255, 71); border-left-style: none; border-left-width: 0px; border-right-color: rgb(232, 255, 71); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bottom-left-shapeâ€¦",
+      "elementTextContent": "$595 USD",
+      "elementTagName": "div",
+      "elementAttributes": [
+        [
+          "class",
+          "product-detail-price"
+        ],
+        [
+          "id",
+          "detailPrice"
+        ],
+        [
+          "data-price",
+          "595"
+        ]
+      ],
+      "xpath": "//div[@id='detailPrice']",
+      "dynamic": "Yes",
+      "elementPosition": "x:612, y:360, w:328, h:46",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "ProductPriceInList",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "tagName": [
+            "div",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "product-detail-price",
+              "equalTo"
+            ],
+            "id": [
+              "detailPrice",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:39:55.440Z"
+    }
+  ]
+}

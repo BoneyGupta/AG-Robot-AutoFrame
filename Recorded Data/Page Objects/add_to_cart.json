@@ -1,0 +1,303 @@
+{
+  "pageObject": "Add to cart",
+  "steps": [
+    {
+      "stepId": "1596269754",
+      "stepNumber": 1,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<button class=\"add-to-cart-btn \" id=\"addCartBtn\" onclick=\"addToCart('w3')\">+ Add to Cart</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(232, 255, 71); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 51.3333px; border-block-end-color: rgb(10, 10, 15); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(10, 10, 15); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(10, 10, 15); border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: separate; border-end-end-radius: 12px; border-end-start-radius: 12px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(10, 10, 15); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(10, 10, 15); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(10, 10, 15); border-left-style: none; border-left-width: 0px; border-right-color: rgb(10, 10, 15); border-right-style: none; border-right-width: 0px; border-start-end-radius: 12px; border-start-start-radius: 12px; border-top-color: rgb(10, 10, 15); border-top-left-radius: 12px; border-top-right-radius: 12px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: rgba(232, 255, 71, 0.3) 0px 8px 32px 0px; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(10, 10, 15); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(10, 10, 15); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(10, 10, 15); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normâ€¦",
+      "elementTextContent": "+ Add to Cart",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "add-to-cart-btn "
+        ],
+        [
+          "id",
+          "addCartBtn"
+        ],
+        [
+          "onclick",
+          "addToCart('w3')"
+        ]
+      ],
+      "xpath": "//button[@id='addCartBtn']",
+      "dynamic": "",
+      "elementPosition": "x:612, y:321, w:328, h:51",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Click on <button>#addCartBtn",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:41:21.063Z"
+    },
+    {
+      "stepId": "7910219478",
+      "stepNumber": 2,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<button class=\"cart-btn\" onclick=\"goCart()\">ðŸ›’ Cart 1</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: center; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 35.3333px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 8px; border-end-start-radius: 8px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 8px; border-start-start-radius: 8px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: 8px; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; â€¦",
+      "elementTextContent": "🛒 Cart 1",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "cart-btn"
+        ],
+        [
+          "onclick",
+          "goCart()"
+        ]
+      ],
+      "xpath": "//div[@id='productScreen']//button[@class='cart-btn']",
+      "dynamic": "",
+      "elementPosition": "x:1006, y:20, w:111, h:35",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "🛒 Cart 1",
+            "equalTo"
+          ],
+          "tagName": [
+            "button",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "cart-btn",
+              "equalTo"
+            ],
+            "onclick": [
+              "goCart()",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:41:27.226Z"
+    },
+    {
+      "stepId": "5394624061",
+      "stepNumber": 3,
+      "actionType": "Click",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<button class=\"cart-btn\" onclick=\"goCart()\">ðŸ›’ Cart 1</button>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: center; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: auto; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgb(26, 26, 36); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 35.3333px; border-block-end-color: rgb(232, 255, 71); border-block-end-style: solid; border-block-end-width: 0.666667px; border-block-start-color: rgb(232, 255, 71); border-block-start-style: solid; border-block-start-width: 0.666667px; border-bottom-color: rgb(232, 255, 71); border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; border-bottom-style: solid; border-bottom-width: 0.666667px; border-collapse: separate; border-end-end-radius: 8px; border-end-start-radius: 8px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(232, 255, 71); border-inline-end-style: solid; border-inline-end-width: 0.666667px; border-inline-start-color: rgb(232, 255, 71); border-inline-start-style: solid; border-inline-start-width: 0.666667px; border-left-color: rgb(232, 255, 71); border-left-style: solid; border-left-width: 0.666667px; border-right-color: rgb(232, 255, 71); border-right-style: solid; border-right-width: 0.666667px; border-start-end-radius: 8px; border-start-start-radius: 8px; border-top-color: rgb(232, 255, 71); border-top-left-radius: 8px; border-top-right-radius: 8px; border-top-style: solid; border-top-width: 0.666667px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(232, 255, 71); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(232, 255, 71); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: 8px; column-height: auto; column-rule-color: rgb(232, 255, 71); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; â€¦",
+      "elementTextContent": "🛒 Cart 1",
+      "elementTagName": "button",
+      "elementAttributes": [
+        [
+          "class",
+          "cart-btn"
+        ],
+        [
+          "onclick",
+          "goCart()"
+        ]
+      ],
+      "xpath": "//div[@id='productScreen']//button[@class='cart-btn']",
+      "dynamic": "",
+      "elementPosition": "x:1006, y:20, w:111, h:35",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "Click on <button>",
+      "inputValue": "",
+      "verifyDOM": [],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:41:44.147Z"
+    },
+    {
+      "stepId": "3752311484",
+      "stepNumber": 4,
+      "actionType": "Verify",
+      "skip": "No",
+      "stopOnFailure": "Yes",
+      "sectionName": "Add to cart",
+      "elementDOM": "<div class=\"cart-item-name\">Tissot PRX Powermatic 80</div>",
+      "elementCSS": "accent-color: auto; align-content: normal; align-items: normal; align-self: auto; alignment-baseline: auto; anchor-name: none; anchor-scope: none; animation-composition: replace; animation-delay: 0s; animation-direction: normal; animation-duration: 0s; animation-fill-mode: none; animation-iteration-count: 1; animation-name: none; animation-play-state: running; animation-range-end: normal; animation-range-start: normal; animation-timeline: auto; animation-timing-function: ease; animation-trigger: none; app-region: none; appearance: none; backdrop-filter: none; backface-visibility: visible; background-attachment: scroll; background-blend-mode: normal; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: none; background-origin: padding-box; background-position: 0% 0%; background-repeat: repeat; background-size: auto; baseline-shift: 0px; baseline-source: auto; block-size: 19.3333px; border-block-end-color: rgb(240, 240, 248); border-block-end-style: none; border-block-end-width: 0px; border-block-start-color: rgb(240, 240, 248); border-block-start-style: none; border-block-start-width: 0px; border-bottom-color: rgb(240, 240, 248); border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-style: none; border-bottom-width: 0px; border-collapse: collapse; border-end-end-radius: 0px; border-end-start-radius: 0px; border-image-outset: 0; border-image-repeat: stretch; border-image-slice: 100%; border-image-source: none; border-image-width: 1; border-inline-end-color: rgb(240, 240, 248); border-inline-end-style: none; border-inline-end-width: 0px; border-inline-start-color: rgb(240, 240, 248); border-inline-start-style: none; border-inline-start-width: 0px; border-left-color: rgb(240, 240, 248); border-left-style: none; border-left-width: 0px; border-right-color: rgb(240, 240, 248); border-right-style: none; border-right-width: 0px; border-start-end-radius: 0px; border-start-start-radius: 0px; border-top-color: rgb(240, 240, 248); border-top-left-radius: 0px; border-top-right-radius: 0px; border-top-style: none; border-top-width: 0px; bottom: auto; box-decoration-break: slice; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; buffered-rendering: auto; caption-side: top; caret-animation: auto; caret-color: rgb(240, 240, 248); caret-shape: auto; clear: none; clip: auto; clip-path: none; clip-rule: nonzero; color: rgb(240, 240, 248); color-interpolation: srgb; color-interpolation-filters: linearrgb; color-rendering: auto; column-count: auto; column-gap: normal; column-height: auto; column-rule-color: rgb(240, 240, 248); column-rule-style: none; column-rule-width: 0px; column-span: none; column-width: auto; column-wrap: auto; contain-intrinsic-block-size: none; contain-intrinsic-height: none; contain-intrinsic-inline-size: none; contain-intrinsic-size: none; contain-intrinsic-width: none; container-name: none; container-type: normal; content: normal; corner-bâ€¦",
+      "elementTextContent": "Tissot PRX Powermatic 80",
+      "elementTagName": "div",
+      "elementAttributes": [
+        [
+          "class",
+          "cart-item-name"
+        ]
+      ],
+      "xpath": "//div[@class='cart-item-name']",
+      "dynamic": "Yes",
+      "elementPosition": "x:121, y:260, w:184, h:19",
+      "parentElementDOM": "",
+      "parentElementCSS": "",
+      "parentTextContent": "",
+      "parentTagName": "",
+      "parentAttributes": [],
+      "nthInPageOrParent": [],
+      "nthIdentifierDOM": [],
+      "nthIdentifierCSS": [],
+      "wait": [
+        {
+          "waitType": "",
+          "Timeout": 0
+        }
+      ],
+      "agent": "",
+      "save": "",
+      "saved": [
+        "{{bb.local.ProductPriceInList}}",
+        "{{bb.local.ProductNameInList}}"
+      ],
+      "calculate": {
+        "variable1": "",
+        "operator": "",
+        "variable2": "",
+        "expectedResult": "",
+        "resultOperator": ""
+      },
+      "description": "",
+      "inputValue": "",
+      "verifyDOM": [
+        {
+          "textContent": [
+            "{{bb.local.ProductNameInList}}",
+            "varContains"
+          ],
+          "tagName": [
+            "div",
+            "equalTo"
+          ],
+          "attributes": {
+            "class": [
+              "cart-item-name",
+              "equalTo"
+            ]
+          }
+        }
+      ],
+      "verifyCSS": [],
+      "selectOptions": "",
+      "selectedOption": "",
+      "url": "file:///C:/Users/admin/Downloads/ecommerce-test-playground.html",
+      "title": "ShopLab â€” QA Testing Playground",
+      "windowSize": {
+        "width": 1272,
+        "height": 554
+      },
+      "timestamp": "2026-03-19T06:42:11.212Z"
+    }
+  ]
+}
