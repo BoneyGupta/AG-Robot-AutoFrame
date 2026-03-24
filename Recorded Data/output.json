@@ -1,6 +1,6 @@
 {
   "browser": "edge",
-  "headed": false,
+  "headed": true,
   "implicitWait": 3000,
   "startURL": "ecommerce-test-playground.html",
   "steps": [
